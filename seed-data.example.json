@@ -1,0 +1,28 @@
+{
+  "setlist": {
+    "title": "Harbor Lights",
+    "venue": "The Lantern Room",
+    "date": "2026-09-19",
+    "notes": "Opening set / encore request"
+  },
+  "songs": [
+    {
+      "title": "Midnight Echo",
+      "artist": "Atlas Bloom",
+      "key": "A",
+      "duration": "3:42",
+      "energy": 4,
+      "position": 1,
+      "notes": "Start with full-band groove"
+    },
+    {
+      "title": "Glass Horizon",
+      "artist": "Nova Harbor",
+      "key": "D",
+      "duration": "4:18",
+      "energy": 5,
+      "position": 2,
+      "notes": "Big chorus"
+    }
+  ]
+}

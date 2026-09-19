@@ -1,0 +1,604 @@
+{
+  "setlist": {
+    "title": "COUNTDOWN JAPAN 25/26 — 12月30日",
+    "venue": "幕張メッセ国際展示場1〜11ホール・イベントホール",
+    "date": "2025-12-30",
+    "notes": "festival; selected attended artists only."
+  },
+  "songs": [
+    {
+      "title": "グー",
+      "artist": "ハンブレッダーズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 1,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "BGMになるなよ",
+      "artist": "ハンブレッダーズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 2,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "DANCING IN THE ROOM",
+      "artist": "ハンブレッダーズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 3,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "ファイナルボーイフレンド",
+      "artist": "ハンブレッダーズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 4,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "ピース",
+      "artist": "ハンブレッダーズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 5,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "ちょっとロンリー",
+      "artist": "ハンブレッダーズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 6,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "銀河高速",
+      "artist": "ハンブレッダーズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 7,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "あつまれ！パーティーピーポー",
+      "artist": "ヤバイTシャツ屋さん",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 8,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Tank-top of the world",
+      "artist": "ヤバイTシャツ屋さん",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 9,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "L・O・V・E タオル",
+      "artist": "ヤバイTシャツ屋さん",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 10,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "Blooming the Tank-top",
+      "artist": "ヤバイTシャツ屋さん",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 11,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "ちらばれ！サマーピーポー",
+      "artist": "ヤバイTシャツ屋さん",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 12,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "げんきもりもり！モーリーファンタジー",
+      "artist": "ヤバイTシャツ屋さん",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 13,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "PAC-MANISM",
+      "artist": "ヤバイTシャツ屋さん",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 14,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "ハッピーウェディング前ソング",
+      "artist": "ヤバイTシャツ屋さん",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 15,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "無線LANばり便利",
+      "artist": "ヤバイTシャツ屋さん",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 16,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "NO MONEY DANCE",
+      "artist": "ヤバイTシャツ屋さん",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 17,
+      "notes": "festival; main set; artist set position 10"
+    },
+    {
+      "title": "かわE",
+      "artist": "ヤバイTシャツ屋さん",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 18,
+      "notes": "festival; main set; artist set position 11"
+    },
+    {
+      "title": "青春狂騒曲",
+      "artist": "サンボマスター",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 19,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "ヒューマニティ！",
+      "artist": "サンボマスター",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 20,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "世界はそれを愛と呼ぶんだぜ",
+      "artist": "サンボマスター",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 21,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "とまどうほどに照らしてくれ",
+      "artist": "サンボマスター",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 22,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "Future is Yours",
+      "artist": "サンボマスター",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 23,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "できっこないを やらなくちゃ",
+      "artist": "サンボマスター",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 24,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "花束",
+      "artist": "サンボマスター",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 25,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "フルドライブ",
+      "artist": "KANA-BOON",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 26,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "SUPERNOVA",
+      "artist": "KANA-BOON",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 27,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "ラブアンドマスターピース",
+      "artist": "KANA-BOON",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 28,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "ソングオブザデッド",
+      "artist": "KANA-BOON",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 29,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "スノーグローブ",
+      "artist": "KANA-BOON",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 30,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "スターマーカー",
+      "artist": "KANA-BOON",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 31,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "シルエット",
+      "artist": "KANA-BOON",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 32,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "DISCOGRAPHY",
+      "artist": "ストレイテナー",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 33,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Next Chapter",
+      "artist": "ストレイテナー",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 34,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "メタセコイアと月",
+      "artist": "ストレイテナー",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 35,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "Skeletonize!",
+      "artist": "ストレイテナー",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 36,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "シーグラス",
+      "artist": "ストレイテナー",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 37,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "Melodic Storm",
+      "artist": "ストレイテナー",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 38,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "GIRL FRIEND",
+      "artist": "Base Ball Bear",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 39,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Stairway Generation",
+      "artist": "Base Ball Bear",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 40,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "夏の細部",
+      "artist": "Base Ball Bear",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 41,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "The Cut",
+      "artist": "Base Ball Bear",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 42,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "short hair",
+      "artist": "Base Ball Bear",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 43,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "運命",
+      "artist": "sumika",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 44,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Lovers",
+      "artist": "sumika",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 45,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "MAGIC",
+      "artist": "sumika",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 46,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "ふっかつのじゅもん",
+      "artist": "sumika",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 47,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "ファンファーレ",
+      "artist": "sumika",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 48,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "KOKYU",
+      "artist": "sumika",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 49,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "「伝言歌」",
+      "artist": "sumika",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 50,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "Starting Over",
+      "artist": "sumika",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 51,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "センスレス",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 52,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "リライト",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 53,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "ライフ イズ ビューティフル",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 54,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "ソラニン",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 55,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "Re:Re:",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 56,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "遥か彼方",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 57,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "MAKUAKE",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 58,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "アカシア",
+      "artist": "BUMP OF CHICKEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 59,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Hello,world!",
+      "artist": "BUMP OF CHICKEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 60,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "SOUVENIR",
+      "artist": "BUMP OF CHICKEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 61,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "クロノスタシス",
+      "artist": "BUMP OF CHICKEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 62,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "I",
+      "artist": "BUMP OF CHICKEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 63,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "ギルド",
+      "artist": "BUMP OF CHICKEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 64,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "天体観測",
+      "artist": "BUMP OF CHICKEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 65,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "ray",
+      "artist": "BUMP OF CHICKEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 66,
+      "notes": "festival; encore; artist set position 1"
+    }
+  ]
+}

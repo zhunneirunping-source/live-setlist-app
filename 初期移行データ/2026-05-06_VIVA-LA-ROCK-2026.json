@@ -1,0 +1,532 @@
+{
+  "setlist": {
+    "title": "VIVA LA ROCK 2026 — 5月6日",
+    "venue": "さいたまスーパーアリーナ",
+    "date": "2026-05-06",
+    "notes": "festival; selected attended artists only; official event reports used."
+  },
+  "songs": [
+    {
+      "title": "Horizon",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 1,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Now here, No where",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 2,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "Kitchen",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 3,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "climb",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 4,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "monolith",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 5,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "knife",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 6,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "Finder",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 7,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "mahoroba",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 8,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "swim",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 9,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "magnet",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 10,
+      "notes": "festival; main set; artist set position 10"
+    },
+    {
+      "title": "Remember",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 11,
+      "notes": "festival; main set; artist set position 11"
+    },
+    {
+      "title": "ハローフィクサー",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 12,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "RIVER",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 13,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "VIBES BY VIBES",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 14,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "壊れて消えるまで",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 15,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "第ゼロ感",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 16,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "蜃気楼",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 17,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "その向こうへ",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 18,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "ヒトリセカイ",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 19,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "DO YOU LIKE…？",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 20,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "MINT",
+      "artist": "Suchmos",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 21,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Eye to Eye",
+      "artist": "Suchmos",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 22,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "TOBACCO",
+      "artist": "Suchmos",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 23,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "DUMBO",
+      "artist": "Suchmos",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 24,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "To You",
+      "artist": "Suchmos",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 25,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "GAGA",
+      "artist": "Suchmos",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 26,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "VOLT-AGE",
+      "artist": "Suchmos",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 27,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "超BUSY",
+      "artist": "礼賛",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 28,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "GURA GURA",
+      "artist": "礼賛",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 29,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "鏡に恋して",
+      "artist": "礼賛",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 30,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "Virtual Insanity",
+      "artist": "礼賛",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 31,
+      "notes": "festival; main set; artist set position 4; cover"
+    },
+    {
+      "title": "不埒にキャッチー",
+      "artist": "礼賛",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 32,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "Chaos",
+      "artist": "礼賛",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 33,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "TRUMAN",
+      "artist": "礼賛",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 34,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "熱帯夜",
+      "artist": "礼賛",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 35,
+      "notes": "festival; main set; artist set position 8; cover"
+    },
+    {
+      "title": "ホレタハレタ",
+      "artist": "礼賛",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 36,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "センスレス",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 37,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "アフターダーク",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 38,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "ライフ イズ ビューティフル",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 39,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "転がる岩、君に朝が降る",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 40,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "スキンズ",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 41,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "Re:Re:",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 42,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "リライト",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 43,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "MAKUAKE",
+      "artist": "ASIAN KUNG-FU GENERATION",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 44,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "Breathing",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 45,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Space Sonic",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 46,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "Salamander",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 47,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "チーズケーキ・ファクトリー",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 48,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "カーマイン",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 49,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "Supernova",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 50,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "風の日",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 51,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "Missing",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 52,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "Sliding Door",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 53,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "ジターバグ",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 54,
+      "notes": "festival; main set; artist set position 10"
+    },
+    {
+      "title": "Make A Wish",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 55,
+      "notes": "festival; main set; artist set position 11"
+    },
+    {
+      "title": "Strawberry Margarita",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 56,
+      "notes": "festival; main set; artist set position 12"
+    },
+    {
+      "title": "瓶に入れた手紙",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 57,
+      "notes": "festival; encore; artist set position 1"
+    },
+    {
+      "title": "スターフィッシュ",
+      "artist": "ELLEGARDEN",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 58,
+      "notes": "festival; encore; artist set position 2"
+    }
+  ]
+}

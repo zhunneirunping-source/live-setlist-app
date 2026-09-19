@@ -1,0 +1,388 @@
+{
+  "setlist": {
+    "title": "DAIENKAI 2025 — Day 1",
+    "venue": "東京ガーデンシアター",
+    "date": "2025-07-19",
+    "notes": "festival; attended all listed artists. Primary reconstruction from ソノダマン live report. ジュースごくごく倶楽部 was seen but no reliable song list was found, so no guessed songs are inserted."
+  },
+  "songs": [
+    {
+      "title": "コピペ",
+      "artist": "グッドモーニングアメリカ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 1,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "キャッチアンドリリース",
+      "artist": "グッドモーニングアメリカ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 2,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "言葉にならない",
+      "artist": "グッドモーニングアメリカ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 3,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "空ばかり見ていた",
+      "artist": "グッドモーニングアメリカ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 4,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "ウォールペーパーミュージックじゃ踊りたくないぜ",
+      "artist": "グッドモーニングアメリカ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 5,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "拝啓、ツラツストラ",
+      "artist": "グッドモーニングアメリカ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 6,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "未来へのスパイラル",
+      "artist": "グッドモーニングアメリカ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 7,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "そして今宵は語り合おう",
+      "artist": "グッドモーニングアメリカ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 8,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "American Idiot",
+      "artist": "グッドモーニングアメリカ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 9,
+      "notes": "festival; main set; artist set position 9; Green Day cover; with ニューヨーク"
+    },
+    {
+      "title": "Survivor",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 10,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "BLADE",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 11,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "バッドパラドックス",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 12,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "LIVER",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 13,
+      "notes": "festival; main set; artist set position 3; with コロコロチキチキペッパーズ"
+    },
+    {
+      "title": "VS",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 14,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "ポラリス",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 15,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "もっと光を",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 16,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "珠代ベスト 〜パンティーテックス〜",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 17,
+      "notes": "festival; main set; artist set position 1; with 島田珠代"
+    },
+    {
+      "title": "鋼鉄の段ボーラーまさゆき",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 18,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "ちょんまげマン",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 19,
+      "notes": "festival; main set; artist set position 3; with 島田珠代"
+    },
+    {
+      "title": "UMA WITH A MISSION",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 20,
+      "notes": "festival; main set; artist set position 4; with 島田珠代"
+    },
+    {
+      "title": "珠代ベスト 〜パンティーテックス〜",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 21,
+      "notes": "festival; main set; artist set position 5; one chorus; with 島田珠代"
+    },
+    {
+      "title": "君はオバさんにならない",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 22,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "クラーク博士と僕",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 23,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "薬草",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 24,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "なんでもかんでもランキング 〜 勝手にシンドバッド 〜 夏祭り 〜 夏色 〜 ふたりの愛ランド",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 25,
+      "notes": "festival; main set; artist set position 9; medley; with 囲碁将棋、紅しょうが、エバース、ななまがり、島田珠代"
+    },
+    {
+      "title": "YOU GOTTA DANCE",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 26,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "IT'S TOO LATE",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 27,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "LET'S GO BACK",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 28,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "GIMME GIMME",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 29,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "SUNNY SIDE UP",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 30,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "HOT DOG",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 31,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "T.Y.I.A.",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 32,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "POPCORN",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 33,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "JUST BE COOL",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 34,
+      "notes": "festival; main set; artist set position 8; with DJ KELLY"
+    },
+    {
+      "title": "バカサバイバー",
+      "artist": "ウルフルズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 35,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "大阪ストラット",
+      "artist": "ウルフルズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 36,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "笑えれば",
+      "artist": "ウルフルズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 37,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "暴れだす",
+      "artist": "ウルフルズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 38,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "ガッツだぜ!!",
+      "artist": "ウルフルズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 39,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "借金大王",
+      "artist": "ウルフルズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 40,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "バンザイ 〜好きでよかった〜",
+      "artist": "ウルフルズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 41,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "ええねん",
+      "artist": "ウルフルズ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 42,
+      "notes": "festival; main set; artist set position 8; with さや香、ロングコートダディ、銀シャリ、ウルトラズ"
+    }
+  ]
+}

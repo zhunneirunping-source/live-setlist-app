@@ -1,0 +1,100 @@
+{
+  "setlist": {
+    "title": "DAIENKA 2024",
+    "venue": "-",
+    "date": "2024-07-13",
+    "notes": "ダイエンカ 2024"
+  },
+  "songs": [
+    {
+      "title": "Gnarls",
+      "artist": "Gnarls",
+      "key": "A",
+      "duration": "3:46",
+      "energy": 4,
+      "position": 1,
+      "notes": "開曲"
+    },
+    {
+      "title": "Aurelia",
+      "artist": "Aurelia",
+      "key": "G",
+      "duration": "4:09",
+      "energy": 3,
+      "position": 2,
+      "notes": "中盤"
+    },
+    {
+      "title": "Mournful Yo",
+      "artist": "Mournful Yo",
+      "key": "D",
+      "duration": "4:25",
+      "energy": 4,
+      "position": 3,
+      "notes": "盛り上がり"
+    },
+    {
+      "title": "Volvarel",
+      "artist": "Volvarel",
+      "key": "F#",
+      "duration": "3:18",
+      "energy": 5,
+      "position": 4,
+      "notes": "ハイテンション"
+    },
+    {
+      "title": "Peakdream",
+      "artist": "Peakdream",
+      "key": "C",
+      "duration": "3:52",
+      "energy": 4,
+      "position": 5,
+      "notes": "サビ"
+    },
+    {
+      "title": "Melo 5th",
+      "artist": "Melo 5th",
+      "key": "E",
+      "duration": "4:11",
+      "energy": 3,
+      "position": 6,
+      "notes": "落ち着いた中盤"
+    },
+    {
+      "title": "Pilot",
+      "artist": "Pilot",
+      "key": "A",
+      "duration": "3:37",
+      "energy": 4,
+      "position": 7,
+      "notes": "テンポ感"
+    },
+    {
+      "title": "Luv Vibe",
+      "artist": "Luv Vibe",
+      "key": "B",
+      "duration": "4:02",
+      "energy": 4,
+      "position": 8,
+      "notes": "ラブソング"
+    },
+    {
+      "title": "Phantom Night",
+      "artist": "Phantom Night",
+      "key": "E",
+      "duration": "5:08",
+      "energy": 5,
+      "position": 9,
+      "notes": "大クライマックス"
+    },
+    {
+      "title": "Sunset Lanes",
+      "artist": "Sunset Lanes",
+      "key": "G",
+      "duration": "4:40",
+      "energy": 3,
+      "position": 10,
+      "notes": "アンコール前"
+    }
+  ]
+}

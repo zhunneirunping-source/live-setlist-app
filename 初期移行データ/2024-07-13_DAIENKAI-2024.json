@@ -1,0 +1,397 @@
+{
+  "setlist": {
+    "title": "DAIENKAI 2024 — 7月13日",
+    "venue": "東京ガーデンシアター",
+    "date": "2024-07-13",
+    "notes": "festival; attended all listed artists. User-posted/live-report sources. Some artist sets are incomplete. 四星球 is partial and order uncertain because published entries conflict; contradicted songs 運動会やりたい and Mr.Cosmo are excluded."
+  },
+  "songs": [
+    {
+      "title": "赤裸々のリラ",
+      "artist": "ZiDol",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 1,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "today is まにまに",
+      "artist": "ZiDol",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 2,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "Kinds",
+      "artist": "ブランデー戦記",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 3,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Musica",
+      "artist": "ブランデー戦記",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 4,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "Coming of age story",
+      "artist": "ブランデー戦記",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 5,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "黒い帽子",
+      "artist": "ブランデー戦記",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 6,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "僕のスウィーティー",
+      "artist": "ブランデー戦記",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 7,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "土曜日",
+      "artist": "ブランデー戦記",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 8,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "ストックホルムの箱",
+      "artist": "ブランデー戦記",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 9,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "Smells Like Teen Spirit",
+      "artist": "ブランデー戦記",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 10,
+      "notes": "festival; main set; artist set position 8; collaboration with ニューヨーク; cover"
+    },
+    {
+      "title": "ビビった",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 11,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "ただしイケメンに限らない",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 12,
+      "notes": "festival; main set; artist set position 1; with マユリカ"
+    },
+    {
+      "title": "ただしイケメンに限らない",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 13,
+      "notes": "festival; main set; artist set position 2; with 金属バット"
+    },
+    {
+      "title": "サギグラファー",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 14,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "推しのいる生活",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 15,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "ギリ昭和",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 16,
+      "notes": "festival; main set; artist set position 5; with 男性ブランコ"
+    },
+    {
+      "title": "ファントムヴァイブレーション",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 17,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "ネコカミたい",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 18,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "お願いシェンロン",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 19,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "UMA WITH A MISSION",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 20,
+      "notes": "festival; main set; artist set position 1; partial source; performance 1; order uncertain"
+    },
+    {
+      "title": "UMA WITH A MISSION",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 21,
+      "notes": "festival; main set; artist set position 2; partial source; performance 2; order uncertain"
+    },
+    {
+      "title": "妖怪泣き笑い",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 22,
+      "notes": "festival; main set; artist set position 3; partial source; order uncertain"
+    },
+    {
+      "title": "クラーク博士と僕",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 23,
+      "notes": "festival; main set; artist set position 4; partial source; order uncertain"
+    },
+    {
+      "title": "薬草",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 24,
+      "notes": "festival; main set; artist set position 5; partial source; order uncertain"
+    },
+    {
+      "title": "愛とか恋とか",
+      "artist": "Novelbright",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 25,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "また明日",
+      "artist": "Novelbright",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 26,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "seeker",
+      "artist": "Novelbright",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 27,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "Awesome Life",
+      "artist": "Novelbright",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 28,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "Empire",
+      "artist": "Novelbright",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 29,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "Friends for life",
+      "artist": "Novelbright",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 30,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "Walking with you",
+      "artist": "Novelbright",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 31,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "拝啓、親愛なる君へ",
+      "artist": "Novelbright",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 32,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "愛の標識",
+      "artist": "クリープハイプ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 33,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "大丈夫",
+      "artist": "クリープハイプ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 34,
+      "notes": "festival; rehearsal; artist set position 2; rehearsal"
+    },
+    {
+      "title": "社会の窓と同じ構成",
+      "artist": "クリープハイプ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 35,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "しょうもな",
+      "artist": "クリープハイプ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 36,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "HE IS MINE",
+      "artist": "クリープハイプ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 37,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "キケンナアソビ",
+      "artist": "クリープハイプ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 38,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "火まつり",
+      "artist": "クリープハイプ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 39,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "ナイトオンザプラネット",
+      "artist": "クリープハイプ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 40,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "イノチミジカシコイセヨオトメ",
+      "artist": "クリープハイプ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 41,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "傷つける",
+      "artist": "クリープハイプ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 42,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "両手にパイナポー",
+      "artist": "クリープハイプ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 43,
+      "notes": "festival; encore; artist set position 1; encore; with ヨネダ2000"
+    }
+  ]
+}

@@ -1,0 +1,496 @@
+{
+  "setlist": {
+    "title": "DAIENKAI 2026 — Day 3",
+    "venue": "東京ガーデンシアター",
+    "date": "2026-08-02",
+    "notes": "festival; attended all listed artists. Primary source: ソノダマン (@yoppeleah) live report. ZiDol set is incomplete: the report confirms two unnamed opening songs and ピエロ; only the named song is included."
+  },
+  "songs": [
+    {
+      "title": "ピエロ",
+      "artist": "ZiDol",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 1,
+      "notes": "festival; main set; artist set position 1; partial source; performed after two unidentified opening songs; actual set position 3"
+    },
+    {
+      "title": "夢の恋人",
+      "artist": "ズーカラデル",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 2,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "ブルー・サマータイム・ブルーズ",
+      "artist": "ズーカラデル",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 3,
+      "notes": "festival; rehearsal; artist set position 2; rehearsal"
+    },
+    {
+      "title": "TAPIOCA",
+      "artist": "ズーカラデル",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 4,
+      "notes": "festival; rehearsal; artist set position 3; rehearsal"
+    },
+    {
+      "title": "漂流劇団",
+      "artist": "ズーカラデル",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 5,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "アニー",
+      "artist": "ズーカラデル",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 6,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "ローリンローリン",
+      "artist": "ズーカラデル",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 7,
+      "notes": "festival; main set; artist set position 3; with 銀シャリ"
+    },
+    {
+      "title": "ムーンライトにお願い！",
+      "artist": "ズーカラデル",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 8,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "バードマン",
+      "artist": "ズーカラデル",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 9,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "友達のうた",
+      "artist": "ズーカラデル",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 10,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "ダンサーインザルーム",
+      "artist": "ズーカラデル",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 11,
+      "notes": "festival; main set; artist set position 7; with 男性ブランコ"
+    },
+    {
+      "title": "シーラカンス",
+      "artist": "ズーカラデル",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 12,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "心音",
+      "artist": "Omoinotake",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 13,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "フェイクショー",
+      "artist": "Omoinotake",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 14,
+      "notes": "festival; rehearsal; artist set position 2; rehearsal"
+    },
+    {
+      "title": "EVERBLUE",
+      "artist": "Omoinotake",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 15,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Wonderland",
+      "artist": "Omoinotake",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 16,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "アイオライト",
+      "artist": "Omoinotake",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 17,
+      "notes": "festival; main set; artist set position 3; with マユリカ、紅しょうが、しずる、シシガシラ"
+    },
+    {
+      "title": "イノセントブルー",
+      "artist": "Omoinotake",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 18,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "蕾",
+      "artist": "Omoinotake",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 19,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "FLASHBULB",
+      "artist": "Omoinotake",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 20,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "トニカ",
+      "artist": "Omoinotake",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 21,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "幾億光年",
+      "artist": "Omoinotake",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 22,
+      "notes": "festival; main set; artist set position 8; with マユリカ、紅しょうが、しずる、シシガシラ"
+    },
+    {
+      "title": "PARTY PARTY",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 23,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "POPCORN",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 24,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "IT'S TOO LATE",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 25,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "LET'S GO BACK",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 26,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "KICKS!",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 27,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "SUNNY SIDE UP",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 28,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "HOT DOG",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 29,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "T.Y.I.A.",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 30,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "JUST BE COOL",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 31,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "KEEP ON ROCKIN'",
+      "artist": "THE BAWDIES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 32,
+      "notes": "festival; main set; artist set position 10; with NON STYLE石田、ニッポンの社長、ライス"
+    },
+    {
+      "title": "D・N・K",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 33,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "未完成",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 34,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Survivor",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 35,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "DAY × DAY",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 36,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "囮囚",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 37,
+      "notes": "festival; main set; artist set position 4; Vo. 亜生(ミキ) ver."
+    },
+    {
+      "title": "バッドパラドックス",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 38,
+      "notes": "festival; main set; artist set position 5; with 亜生(ミキ)"
+    },
+    {
+      "title": "VS",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 39,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "ポラリス",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 40,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "もっと光を",
+      "artist": "BLUE ENCOUNT",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 41,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "死亡フラグを立てないで",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 42,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "クラーク博士と僕",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 43,
+      "notes": "festival; rehearsal; artist set position 2; rehearsal"
+    },
+    {
+      "title": "デリシャスティック",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 44,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "筋肉マイフレンド",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 45,
+      "notes": "festival; main set; artist set position 2; with かけおち"
+    },
+    {
+      "title": "部長ぷっちょどう？",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 46,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "はたらきたくない",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 47,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "WAZA",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 48,
+      "notes": "festival; main set; artist set position 5; with レイザーラモン"
+    },
+    {
+      "title": "ほっこりニュース大集合",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 49,
+      "notes": "festival; main set; artist set position 6; with ロングコートダディ、囲碁将棋"
+    },
+    {
+      "title": "なつのうた",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 50,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "KOMEKOMEN",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 51,
+      "notes": "festival; main set; artist set position 8; with レイザーラモンHG"
+    },
+    {
+      "title": "島国DNA",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 52,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "日本の米は世界一",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 53,
+      "notes": "festival; main set; artist set position 10; with ライス"
+    },
+    {
+      "title": "おどるポンポコリン",
+      "artist": "打首獄門同好会",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 54,
+      "notes": "festival; encore; artist set position 1; encore; with レイザーラモン、ロングコートダディ、囲碁将棋、かけおち"
+    }
+  ]
+}

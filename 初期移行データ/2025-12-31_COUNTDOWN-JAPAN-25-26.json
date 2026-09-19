@@ -1,0 +1,640 @@
+{
+  "setlist": {
+    "title": "COUNTDOWN JAPAN 25/26 — 12月31日",
+    "venue": "幕張メッセ国際展示場1〜11ホール・イベントホール",
+    "date": "2025-12-31",
+    "notes": "festival; selected attended artists only."
+  },
+  "songs": [
+    {
+      "title": "MOONRAKER",
+      "artist": "WurtS",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 1,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "オブリビエイト",
+      "artist": "WurtS",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 2,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "NOISE",
+      "artist": "WurtS",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 3,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "クールじゃない？",
+      "artist": "WurtS",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 4,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "デジタルラブ",
+      "artist": "WurtS",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 5,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "Talking Box (Dirty Pop Remix)",
+      "artist": "WurtS",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 6,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "UPDATE",
+      "artist": "WurtS",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 7,
+      "notes": "festival; main set; artist set position 7; feat. Deu & Ito (PEOPLE 1), Moto (Chilli Beans.)"
+    },
+    {
+      "title": "クラッシュ",
+      "artist": "WurtS",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 8,
+      "notes": "festival; main set; artist set position 8; feat. なとり"
+    },
+    {
+      "title": "分かってないよ",
+      "artist": "WurtS",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 9,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "どうかしてる",
+      "artist": "WurtS",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 10,
+      "notes": "festival; main set; artist set position 10"
+    },
+    {
+      "title": "Be The One",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 11,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Living In My Skin",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 12,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "Say My Name",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 13,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "Radio",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 14,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "We Are...",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 15,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "Into The Soul",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 16,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "Endless Sorrow",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 17,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "Fellowship Anthem",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 18,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "Jump!!",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 19,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "Inside Of Me",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 20,
+      "notes": "festival; main set; artist set position 10"
+    },
+    {
+      "title": "Summer Breeze",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 21,
+      "notes": "festival; main set; artist set position 11"
+    },
+    {
+      "title": "Don't Worry My Friend",
+      "artist": "HEY-SMITH",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 22,
+      "notes": "festival; main set; artist set position 12"
+    },
+    {
+      "title": "風",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 23,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "goes on",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 24,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "SEASIDE CHAIR",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 25,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "スパートシンドローマー",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 26,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "第ゼロ感",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 27,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "その向こうへ",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 28,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "RIVER",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 29,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "ヒトリセカイ",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 30,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "back to the sunset",
+      "artist": "10-FEET",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 31,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "オドループ",
+      "artist": "フレデリック",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 32,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Happiness",
+      "artist": "フレデリック",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 33,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "イマジネーション",
+      "artist": "フレデリック",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 34,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "悪魔",
+      "artist": "フレデリック",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 35,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "飄々とエモーション",
+      "artist": "フレデリック",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 36,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "スパークルダンサー",
+      "artist": "フレデリック",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 37,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "恋のスペルマ",
+      "artist": "マキシマム ザ ホルモン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 38,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "ビューティー殺シアム",
+      "artist": "マキシマム ザ ホルモン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 39,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "ぶっ生き返す!!",
+      "artist": "マキシマム ザ ホルモン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 40,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "絶望ビリー",
+      "artist": "マキシマム ザ ホルモン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 41,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "maximum the hormone Ⅱ～これからの麺カタコッテリの話をしよう～",
+      "artist": "マキシマム ザ ホルモン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 42,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "シミ",
+      "artist": "マキシマム ザ ホルモン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 43,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "鬱くしきOP～月の爆撃機～／鬱くしき人々のうた",
+      "artist": "マキシマム ザ ホルモン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 44,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "Feel",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 45,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "mottö",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 46,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "Galapagos",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 47,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "Now here, No where",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 48,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "monolith",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 49,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "fiction",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 50,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "magnet",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 51,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "Jumper",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 52,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "Keep going",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 53,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "swim",
+      "artist": "04 Limited Sazabys",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 54,
+      "notes": "festival; main set; artist set position 10"
+    },
+    {
+      "title": "Mr.ファントム",
+      "artist": "THE ORAL CIGARETTES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 55,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "Shala La",
+      "artist": "THE ORAL CIGARETTES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 56,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "A-E-U-I",
+      "artist": "THE ORAL CIGARETTES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 57,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "DIKIDANDAN",
+      "artist": "THE ORAL CIGARETTES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 58,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "カンタンナコト",
+      "artist": "THE ORAL CIGARETTES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 59,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "mist...",
+      "artist": "THE ORAL CIGARETTES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 60,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "See you again",
+      "artist": "THE ORAL CIGARETTES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 61,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "ERASE",
+      "artist": "THE ORAL CIGARETTES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 62,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "狂乱 Hey Kids!!",
+      "artist": "THE ORAL CIGARETTES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 63,
+      "notes": "festival; main set; artist set position 9; feat. 牧達弥 (go!go!vanillas)"
+    },
+    {
+      "title": "5150",
+      "artist": "THE ORAL CIGARETTES",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 64,
+      "notes": "festival; main set; artist set position 10"
+    },
+    {
+      "title": "UMA WITH A MISSION",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 65,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "鋼鉄の段ボーラーまさゆき",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 66,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "クラーク博士と僕",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 67,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "どんなもんだい",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 68,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "Mr.Cosmo",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 69,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "薬草",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 70,
+      "notes": "festival; main set; artist set position 6"
+    }
+  ]
+}

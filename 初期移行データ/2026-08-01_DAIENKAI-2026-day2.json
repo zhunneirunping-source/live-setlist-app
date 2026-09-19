@@ -1,0 +1,604 @@
+{
+  "setlist": {
+    "title": "DAIENKAI 2026 — Day 2",
+    "venue": "東京ガーデンシアター",
+    "date": "2026-08-01",
+    "notes": "festival; attended all listed artists. Primary source: ソノダマン (@yoppeleah) live report. Rehearsals retained and clearly labeled."
+  },
+  "songs": [
+    {
+      "title": "琉球サンライズ",
+      "artist": "かずき山盛り",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 1,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "めっちゃパイレーツ",
+      "artist": "かずき山盛り",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 2,
+      "notes": "festival; main set; artist set position 2; with フースーヤ、ヨネダ2000、ななまがり"
+    },
+    {
+      "title": "サミシーナ",
+      "artist": "かずき山盛り",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 3,
+      "notes": "festival; main set; artist set position 3; with フースーヤ、ヨネダ2000、ななまがり"
+    },
+    {
+      "title": "おとこのなみだ酒",
+      "artist": "かずき山盛り",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 4,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "二次会NINJA",
+      "artist": "かずき山盛り",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 5,
+      "notes": "festival; main set; artist set position 5; with ヨネダ2000"
+    },
+    {
+      "title": "ちんかすだらけの運動会 〜 ギンモだらけの運動会",
+      "artist": "かずき山盛り",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 6,
+      "notes": "festival; main set; artist set position 6; with ななまがり"
+    },
+    {
+      "title": "雑草抜きのプロ",
+      "artist": "かずき山盛り",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 7,
+      "notes": "festival; main set; artist set position 7; with フースーヤ"
+    },
+    {
+      "title": "雑草抜きのプロ",
+      "artist": "かずき山盛り",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 8,
+      "notes": "festival; main set; artist set position 8; with ヨネダ2000"
+    },
+    {
+      "title": "雑草抜きのプロ",
+      "artist": "かずき山盛り",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 9,
+      "notes": "festival; main set; artist set position 9; with ななまがり"
+    },
+    {
+      "title": "おおるないとじゃっぷせっしょん",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 10,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "SOLAR KIDS",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 11,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "GOD SAVE THE MUSIC",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 12,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "TRADITIONAL",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 13,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "VAMOS! WIENNERS",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 14,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "WINNER! ゴジュウジャー！",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 15,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "ULTRA JOY",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 16,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "Justice 4",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 17,
+      "notes": "festival; main set; artist set position 7; with 滝音"
+    },
+    {
+      "title": "TOKYO HOLI",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 18,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "SHINOBI TOP SECRET",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 19,
+      "notes": "festival; main set; artist set position 9; with ビスケットブラザーズ"
+    },
+    {
+      "title": "FAR EAST DISCO",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 20,
+      "notes": "festival; main set; artist set position 10"
+    },
+    {
+      "title": "Cult pop suicide",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 21,
+      "notes": "festival; main set; artist set position 11; with エバース町田の牛丼早食いチャレンジ"
+    },
+    {
+      "title": "よろこびのうた",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 22,
+      "notes": "festival; main set; artist set position 12; with エバース町田の牛丼早食いチャレンジ"
+    },
+    {
+      "title": "UNITY",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 23,
+      "notes": "festival; main set; artist set position 13"
+    },
+    {
+      "title": "蒼天ディライト",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 24,
+      "notes": "festival; main set; artist set position 14"
+    },
+    {
+      "title": "よろこびのうた",
+      "artist": "Wienners",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 25,
+      "notes": "festival; main set; artist set position 15; with エバース町田の牛丼早食いチャレンジ"
+    },
+    {
+      "title": "JO-DEKI",
+      "artist": "ポルカドットスティングレイ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 26,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "ICHIDAIJI",
+      "artist": "ポルカドットスティングレイ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 27,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "アウト",
+      "artist": "ポルカドットスティングレイ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 28,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "ゴーストダイブ",
+      "artist": "ポルカドットスティングレイ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 29,
+      "notes": "festival; main set; artist set position 3"
+    },
+    {
+      "title": "DENKOUSEKKA",
+      "artist": "ポルカドットスティングレイ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 30,
+      "notes": "festival; main set; artist set position 4; with ドンデコルテ"
+    },
+    {
+      "title": "Na〜Na",
+      "artist": "ポルカドットスティングレイ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 31,
+      "notes": "festival; main set; artist set position 5; with ドンデコルテ"
+    },
+    {
+      "title": "キラーレコード",
+      "artist": "ポルカドットスティングレイ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 32,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "逆様",
+      "artist": "ポルカドットスティングレイ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 33,
+      "notes": "festival; main set; artist set position 7; with 如月マロンとごろうさん"
+    },
+    {
+      "title": "テレキャスター・ストライプ",
+      "artist": "ポルカドットスティングレイ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 34,
+      "notes": "festival; main set; artist set position 8; with ニッポンの社長、ドンデコルテ、ジェラードン"
+    },
+    {
+      "title": "尊み秀吉天下統一",
+      "artist": "超能力戦士ドリアン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 35,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "フォローしてください",
+      "artist": "超能力戦士ドリアン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 36,
+      "notes": "festival; rehearsal; artist set position 2; rehearsal"
+    },
+    {
+      "title": "恐竜博士は恐竜見たことないでしょ",
+      "artist": "超能力戦士ドリアン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 37,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "ドラゴンの裁縫セット（笑）",
+      "artist": "超能力戦士ドリアン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 38,
+      "notes": "festival; main set; artist set position 2"
+    },
+    {
+      "title": "バイク川崎バイク",
+      "artist": "超能力戦士ドリアン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 39,
+      "notes": "festival; main set; artist set position 3; new song; with バイク川崎バイク"
+    },
+    {
+      "title": "焼肉屋さんの看板で牛さんが笑っているのおかしいね",
+      "artist": "超能力戦士ドリアン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 40,
+      "notes": "festival; main set; artist set position 4; with マジカルラブリー"
+    },
+    {
+      "title": "ムカつく奴は敵",
+      "artist": "超能力戦士ドリアン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 41,
+      "notes": "festival; main set; artist set position 5; with 9番街レトロ"
+    },
+    {
+      "title": "いきものがかりと同じ編成",
+      "artist": "超能力戦士ドリアン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 42,
+      "notes": "festival; main set; artist set position 6; with たくろう"
+    },
+    {
+      "title": "もっと早く寝ればよかった",
+      "artist": "超能力戦士ドリアン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 43,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "カフェかと思ったら美容院だった",
+      "artist": "超能力戦士ドリアン",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 44,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "ギリ昭和",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 45,
+      "notes": "festival; rehearsal; artist set position 1; rehearsal"
+    },
+    {
+      "title": "ファントムバイブレーション",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 46,
+      "notes": "festival; rehearsal; artist set position 2; rehearsal; スマホを触って五里霧中ver."
+    },
+    {
+      "title": "Welcome to 西宮",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 47,
+      "notes": "festival; main set; artist set position 1"
+    },
+    {
+      "title": "スピりスピられ",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 48,
+      "notes": "festival; main set; artist set position 2; with ビスケットブラザーズ"
+    },
+    {
+      "title": "ただしイケメンには限らない",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 49,
+      "notes": "festival; main set; artist set position 3; with カベポスター"
+    },
+    {
+      "title": "推しのいる生活",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 50,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "変な踊り",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 51,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "ただしイケメンには限らない",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 52,
+      "notes": "festival; main set; artist set position 6; with サルゴリラ"
+    },
+    {
+      "title": "ネコカミたい",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 53,
+      "notes": "festival; main set; artist set position 7"
+    },
+    {
+      "title": "Don't Look Back In Anger",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 54,
+      "notes": "festival; main set; artist set position 8; Oasis cover; with ニューヨーク"
+    },
+    {
+      "title": "DQNなりたい、40代で死にたい",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 55,
+      "notes": "festival; main set; artist set position 9; with 見取り図"
+    },
+    {
+      "title": "お願いシェンロン",
+      "artist": "キュウソネコカミ",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 56,
+      "notes": "festival; main set; artist set position 10; with ビスケットブラザーズ、カベポスター、サルゴリラ、ニューヨーク"
+    },
+    {
+      "title": "運動会やりたい",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 57,
+      "notes": "festival; main set; artist set position 1; with マユリカ"
+    },
+    {
+      "title": "どんなもんだい",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 58,
+      "notes": "festival; main set; artist set position 2; with めぞん"
+    },
+    {
+      "title": "UMA WITH A MISSION",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 59,
+      "notes": "festival; main set; artist set position 3; with めぞん"
+    },
+    {
+      "title": "クラーク博士と僕",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 60,
+      "notes": "festival; main set; artist set position 4"
+    },
+    {
+      "title": "アナザーストーリー",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 61,
+      "notes": "festival; main set; artist set position 5"
+    },
+    {
+      "title": "夜明け",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 62,
+      "notes": "festival; main set; artist set position 6"
+    },
+    {
+      "title": "Mr.COSMO",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 63,
+      "notes": "festival; main set; artist set position 7; with ロングコートダディ"
+    },
+    {
+      "title": "9:00p.m. -レッツ・エンターテイメント-",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 64,
+      "notes": "festival; main set; artist set position 8"
+    },
+    {
+      "title": "薬草",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 65,
+      "notes": "festival; main set; artist set position 9"
+    },
+    {
+      "title": "クラーク博士と僕",
+      "artist": "四星球",
+      "key": null,
+      "duration": null,
+      "energy": null,
+      "position": 66,
+      "notes": "festival; encore; artist set position 1; encore; with all performers"
+    }
+  ]
+}
