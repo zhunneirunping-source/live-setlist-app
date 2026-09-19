@@ -14,15 +14,10 @@ const isCodexSeatbeltSandbox = process.env.CODEX_SANDBOX === "seatbelt";
 const localBindingConfig = {
   main: "./worker/index.ts",
   compatibility_flags: ["nodejs_compat"],
-  d1_databases: d1
-    ? [
-        {
-          binding: d1,
-          database_name: "site-creator-d1",
-          database_id: SITE_CREATOR_PLACEHOLDER_DATABASE_ID,
-        },
-      ]
-    : [],
+  // Keep the production binding defined once in wrangler.jsonc.
+  // Adding the same DB binding again in the Vite plugin causes Wrangler to
+  // merge duplicate bindings during deploy and fail with a duplicate-name error.
+  d1_databases: [],
   r2_buckets: r2
     ? [
         {

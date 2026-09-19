@@ -6,8 +6,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "live-setlist-local",
-      "database_id": "00000000-0000-4000-8000-000000000000"
+      "database_name": "live-setlist-prod",
+      "database_id": "9f616af4-82b0-4385-8f70-d13b82f7a6fa"
     }
   ]
 }
