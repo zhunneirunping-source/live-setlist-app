@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { readSongCacheFromStorage, writeSongCache } from "../lib/song-cache.js";
 
 type Song = {
   id: number;
@@ -19,8 +18,6 @@ type SetlistMeta = {
   date: string;
   notes: string;
 };
-
-const STORAGE_KEY = "live-setlist-songs";
 
 const defaultSetlist: SetlistMeta = {
   id: 0,
@@ -51,13 +48,6 @@ function normalizeSong(song: Partial<Song> & { durationSeconds?: number | null; 
     energy: safeEnergy,
   };
 }
-
-const emptyDraft = {
-  title: "",
-  artist: "",
-  key: "C",
-  duration: "3:30",
-};
 
 function parseDuration(value: string) {
   const [minutes, seconds] = value.split(":");
@@ -105,24 +95,19 @@ function resolveEventTag(setlist: Pick<SetlistMeta, "title" | "notes">): "フェ
 }
 
 export function SetlistDashboard() {
-  const [songs, setSongs] = useState<Song[]>(defaultSongs);
   const [archive, setArchive] = useState<Array<SetlistMeta & { songs: Song[] }>>([]);
   const [selectedSetlistId, setSelectedSetlistId] = useState<number>(defaultSetlist.id);
   const [activeTab, setActiveTab] = useState<"setlist" | "dashboard">("setlist");
   const [modalSetlistId, setModalSetlistId] = useState<number | null>(null);
   const [rankLimit, setRankLimit] = useState<number>(10);
-  const [draft, setDraft] = useState(emptyDraft);
-  const [isFormOpen, setIsFormOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedArtist, setSelectedArtist] = useState<string | null>(null);
   const requestIdRef = useRef(0);
 
   const loadArchiveData = async () => {
     const requestId = ++requestIdRef.current;
-    const cached = readSongCacheFromStorage(window.localStorage, STORAGE_KEY);
 
     try {
-      const response = await fetch("/api/setlists?source=archive", { cache: "no-store" });
+      const response = await fetch("/api/setlists", { cache: "no-store" });
       if (!response.ok) {
         throw new Error("Failed to load setlists");
       }
@@ -141,9 +126,9 @@ export function SetlistDashboard() {
 
       const details = await Promise.all(
         setlistRows.map(async (setlist) => {
-          const setlistResponse = await fetch(`/api/setlists?source=archive&setlistId=${setlist.id}`, { cache: "no-store" });
+          const setlistResponse = await fetch(`/api/setlists?setlistId=${setlist.id}`, { cache: "no-store" });
           if (!setlistResponse.ok) {
-            return { ...setlist, songs: cached && cached.setlistId === setlist.id ? cached.songs as Song[] : [] as Song[] };
+            return { ...setlist, songs: [] as Song[] };
           }
 
           const payload = await setlistResponse.json() as { songs?: Array<Partial<Song> & { durationSeconds?: number }> };
@@ -171,21 +156,13 @@ export function SetlistDashboard() {
       setArchive(sorted);
       const first = sorted[0] ?? { ...defaultSetlist, songs: defaultSongs };
       setSelectedSetlistId(first.id);
-      setSongs(first.songs ?? []);
     } catch {
       if (requestId !== requestIdRef.current) {
         return;
       }
 
-      const recoveredSongs = cached?.songs as Song[] | undefined;
-      const recoveredSetlist = recoveredSongs?.length
-        ? { ...defaultSetlist, id: cached?.setlistId ?? 0, songs: recoveredSongs }
-        : null;
-      setArchive(recoveredSetlist ? [recoveredSetlist] : []);
-      setSelectedSetlistId(recoveredSetlist?.id ?? defaultSetlist.id);
-      setSongs(recoveredSongs ?? defaultSongs);
-    } finally {
-      setIsLoading(false);
+      setArchive([]);
+      setSelectedSetlistId(defaultSetlist.id);
     }
   };
 
@@ -196,11 +173,6 @@ export function SetlistDashboard() {
 
     return () => window.clearTimeout(timer);
   }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined" || isLoading) return;
-    writeSongCache(window.localStorage, STORAGE_KEY, selectedSetlistId, songs);
-  }, [songs, isLoading, selectedSetlistId]);
 
   const selectedSetlist = archive.find((setlist) => setlist.id === selectedSetlistId) ?? archive[0] ?? { ...defaultSetlist, songs: defaultSongs };
   const modalSetlist = archive.find((setlist) => setlist.id === modalSetlistId) ?? null;
@@ -355,111 +327,10 @@ export function SetlistDashboard() {
     return modalSetlist.songs.filter((song) => song.artist === activeArtist);
   }, [modalSetlist, activeArtist]);
 
-  const handleAddSong = async () => {
-    const title = draft.title.trim();
-    const artist = draft.artist.trim();
-    const key = draft.key.trim() || "C";
-    const duration = draft.duration.trim();
-
-    if (!title || !artist || !duration) {
-      return;
-    }
-
-    const payload = { setlistId: selectedSetlist.id, title, artist, key, duration, energy: 3 };
-
-    try {
-      const response = await fetch("/api/setlists", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to create song");
-      }
-
-      const data = await response.json() as { songs?: Array<Partial<Song> & { durationSeconds?: number }> };
-      const nextSongs = Array.isArray(data.songs)
-        ? data.songs.map((song: Partial<Song> & { durationSeconds?: number }) => normalizeSong(song))
-        : defaultSongs;
-
-      setArchive((current) => current.map((setlist) => setlist.id === selectedSetlist.id ? { ...setlist, songs: nextSongs } : setlist));
-      setSongs(nextSongs);
-    } catch {
-      const nextSong: Song = { id: Date.now(), title, artist, key, duration, energy: 3 };
-      setSongs((current) => [...current, nextSong]);
-    } finally {
-      setDraft(emptyDraft);
-      setIsFormOpen(false);
-    }
-  };
-
-  const moveSong = async (index: number, direction: -1 | 1) => {
-    const targetIndex = index + direction;
-    if (targetIndex < 0 || targetIndex >= songs.length) return;
-
-    const nextSongs = [...songs];
-    [nextSongs[index], nextSongs[targetIndex]] = [nextSongs[targetIndex], nextSongs[index]];
-    setSongs(nextSongs);
-
-    try {
-      const response = await fetch("/api/setlists", {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ setlistId: selectedSetlist.id, songs: nextSongs }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to reorder songs");
-      }
-
-      const data = await response.json() as { songs?: Array<Partial<Song> & { durationSeconds?: number }> };
-      const persistedSongs = Array.isArray(data.songs)
-        ? data.songs.map((song: Partial<Song> & { durationSeconds?: number }) => normalizeSong(song))
-        : nextSongs;
-
-      setSongs(persistedSongs);
-      setArchive((current) => current.map((setlist) => setlist.id === selectedSetlist.id ? { ...setlist, songs: persistedSongs } : setlist));
-    } catch {
-      writeSongCache(window.localStorage, STORAGE_KEY, selectedSetlist.id, nextSongs);
-    }
-  };
-
-  const removeSong = async (id: number) => {
-    const nextSongs = songs.filter((song) => song.id !== id);
-    setSongs(nextSongs);
-
-    try {
-      const response = await fetch(`/api/setlists?id=${id}&setlistId=${selectedSetlist.id}`, {
-        method: "DELETE",
-      });
-
-      if (!response.ok) {
-        throw new Error("Failed to delete song");
-      }
-
-      const data = await response.json() as { songs?: Array<Partial<Song> & { durationSeconds?: number }> };
-      const persistedSongs = Array.isArray(data.songs)
-        ? data.songs.map((song: Partial<Song> & { durationSeconds?: number }) => normalizeSong(song))
-        : nextSongs;
-
-      setSongs(persistedSongs);
-      setArchive((current) => current.map((setlist) => setlist.id === selectedSetlist.id ? { ...setlist, songs: persistedSongs } : setlist));
-    } catch {
-      if (typeof window !== "undefined") {
-        writeSongCache(window.localStorage, STORAGE_KEY, selectedSetlist.id, nextSongs);
-      }
-    }
-  };
-
   const openSetlist = (setlistId: number) => {
     const nextSetlist = archive.find((setlist) => setlist.id === setlistId) ?? archive[0] ?? defaultSetlist;
     setSelectedSetlistId(nextSetlist.id);
-    setSongs(nextSetlist.songs ?? []);
     setSelectedArtist(null);
-    setIsFormOpen(false);
   };
 
   const displayDate = (dateString: string) => formatDateValue(dateString);
@@ -686,123 +557,6 @@ export function SetlistDashboard() {
               )}
             </div>
 
-            <div className="modal-detail-section setlist-editor-block">
-              <div className="section-header compact-header">
-                <h4>セットリスト編集</h4>
-                <button className="primary-button small-button" type="button" onClick={() => setIsFormOpen((current) => !current)}>
-                  {isFormOpen ? "閉じる" : "曲を追加"}
-                </button>
-              </div>
-
-              {isFormOpen && (
-                <form
-                  className="song-form modal-song-form"
-                  onSubmit={(event) => {
-                    event.preventDefault();
-                    handleAddSong();
-                  }}
-                >
-                  <label>
-                    Title
-                    <input
-                      value={draft.title}
-                      onChange={(event) =>
-                        setDraft((current) => ({ ...current, title: event.target.value }))
-                      }
-                      placeholder="Song title"
-                    />
-                  </label>
-                  <label>
-                    Artist
-                    <input
-                      value={draft.artist}
-                      onChange={(event) =>
-                        setDraft((current) => ({ ...current, artist: event.target.value }))
-                      }
-                      placeholder="Artist name"
-                    />
-                  </label>
-                  <label>
-                    Key
-                    <input
-                      value={draft.key}
-                      onChange={(event) =>
-                        setDraft((current) => ({ ...current, key: event.target.value }))
-                      }
-                      placeholder="A"
-                    />
-                  </label>
-                  <label>
-                    Duration
-                    <input
-                      value={draft.duration}
-                      onChange={(event) =>
-                        setDraft((current) => ({ ...current, duration: event.target.value }))
-                      }
-                      placeholder="3:30"
-                    />
-                  </label>
-                  <button type="submit" className="submit-button">
-                    Save song
-                  </button>
-                </form>
-              )}
-
-              <div className="setlist-panel modal-song-panel">
-                <div className="panel-header">
-                  <h3>Set order</h3>
-                  <span>{songs.length} tracks</span>
-                </div>
-
-                {songs.length === 0 ? (
-                  <div className="empty-state">No songs yet. Add the first track.</div>
-                ) : (
-                  <ol className="song-list">
-                    {songs.map((song, index) => (
-                      <li className="song-item" key={song.id}>
-                        <div className="song-index">{String(index + 1).padStart(2, "0")}</div>
-
-                        <div className="song-copy">
-                          <div className="song-title-row">
-                            <strong>{song.title}</strong>
-                            <span>{song.duration}</span>
-                          </div>
-                          <p>{song.artist}</p>
-                        </div>
-
-                        <div className="song-actions">
-                          <div className="song-tag">{song.key}</div>
-                          <div className="inline-actions">
-                            <button
-                              type="button"
-                              onClick={() => moveSong(index, -1)}
-                              aria-label={`Move ${song.title} up`}
-                            >
-                              ↑
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => moveSong(index, 1)}
-                              aria-label={`Move ${song.title} down`}
-                            >
-                              ↓
-                            </button>
-                            <button
-                              type="button"
-                              className="danger"
-                              onClick={() => removeSong(song.id)}
-                              aria-label={`Remove ${song.title}`}
-                            >
-                              ×
-                            </button>
-                          </div>
-                        </div>
-                      </li>
-                    ))}
-                  </ol>
-                )}
-              </div>
-            </div>
           </div>
         </div>
       )}

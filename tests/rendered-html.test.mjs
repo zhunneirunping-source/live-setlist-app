@@ -4,15 +4,13 @@ import test from "node:test";
 
 const developmentPreviewMeta =
   /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-async function render() {
+async function fetchWorker(request) {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
+    request,
     {
       ASSETS: {
         fetch: async () => new Response("Not found", { status: 404 }),
@@ -23,6 +21,12 @@ async function render() {
       passThroughOnException() {},
     },
   );
+}
+
+async function render() {
+  return fetchWorker(new Request("http://localhost/", {
+    headers: { accept: "text/html" },
+  }));
 }
 
 test("server-renders the setlist dashboard shell", async () => {
@@ -51,8 +55,17 @@ test("keeps the dashboard UI self-contained and disposable", async () => {
   assert.match(page, /SetlistDashboard/);
   assert.match(page, /metadata:/);
   assert.match(dashboard, /use client/);
-  assert.match(dashboard, /localStorage/);
+  assert.doesNotMatch(dashboard, /localStorage|method:\s*["'](?:POST|PUT|DELETE)["']/);
+  assert.doesNotMatch(dashboard, /セットリスト編集|Save song/);
   assert.match(layout, /title:\s*"Live Setlist App"/);
-  assert.match(css, /setlist|song|track|setlist-panel|song-form/i);
+  assert.match(css, /setlist|song|track|setlist-panel/i);
   assert.doesNotMatch(css, /react-loading-skeleton|sites-skeleton/);
+});
+
+test("rejects production setlist writes at the route boundary", async () => {
+  for (const method of ["POST", "PUT", "DELETE"]) {
+    const response = await fetchWorker(new Request("http://localhost/api/setlists", { method }));
+    assert.equal(response.status, 405, method);
+    assert.equal(response.headers.get("allow"), "GET", method);
+  }
 });

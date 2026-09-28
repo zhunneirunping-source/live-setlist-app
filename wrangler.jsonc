@@ -2,12 +2,5 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "live-setlist-app",
   "main": "./worker/index.ts",
-  "compatibility_date": "2026-05-22",
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "live-setlist-prod",
-      "database_id": "9f616af4-82b0-4385-8f70-d13b82f7a6fa"
-    }
-  ]
+  "compatibility_date": "2026-05-22"
 }

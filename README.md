@@ -13,11 +13,11 @@
 ## 主な技術
 
 - Next.js / React / Vinext
-- Cloudflare D1 + Drizzle ORM
+- Archive JSON bundled with the application
 - Wrangler for Cloudflare deployment
-- archive JSON under `初期移行データ/` as the canonical imported dataset
+- archive JSON under `初期移行データ/` as the canonical runtime dataset
 
-Runtime reads and writes currently use different paths. See `docs/data-consistency.md` before changing the archive/D1 source-of-truth behavior or performing data reconciliation.
+The deployed product is intentionally read-only. `GET /api/setlists` reads the archive; `POST`, `PUT`, and `DELETE` return `405 Method Not Allowed`. See `docs/data-consistency.md` before reintroducing editing or reconciling the legacy D1 data.
 
 Archive and seed imports are validated before use. Unknown schema versions, malformed/null songs, missing artists, duplicate source song IDs or positions, and mismatched setlist references are rejected or excluded with reason codes. This detection does not select an archive/D1 source of truth or repair data automatically.
 
@@ -50,19 +50,19 @@ npx wrangler login
 npm run deploy
 ```
 
-`wrangler.jsonc` に D1 バインディングが設定済みのため、Cloudflare に対してそのまま公開可能です。
+`wrangler.jsonc` intentionally has no D1 binding. Production deployment remains a Human Approval action.
 
 ## データソース
 
-- 実運用では D1 から取得
-- 取得できない場合は `初期移行データ/` の JSON をフォールバックとして利用
+- Runtime reads use `初期移行データ/` only.
+- Runtime writes are disabled; update and validate archive JSON before a reviewed deployment.
 - 公演別の集計とランキングは、実データに基づいて再計算される前提です
 
 ## ディレクトリの見どころ
 
 - `app/SetlistDashboard.tsx` : ダッシュボードと公演詳細の UI
-- `app/api/setlists/route.ts` : D1 / JSON の取得ロジック
-- `db/schema.ts` : setlists, songs, setlist_songs のスキーマ
+- `app/api/setlists/route.ts` : archive read API and explicit write rejection
+- `db/schema.ts` : legacy D1 schema retained for read-only reconciliation work
 
 CI-friendly checks are `npm run typecheck`, `npm run lint`, `npm run test:unit`, and `npm run build`. `npm test` intentionally includes a production build before the Node test suite; do not run both `npm test` and a separate build in the same CI job unless duplicate build coverage is desired.
 - `wrangler.jsonc` : Cloudflare deploy config

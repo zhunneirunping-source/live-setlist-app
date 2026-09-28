@@ -2,40 +2,40 @@
 
 Updated: 2026-09-28
 
-## Current behavior
+## Source-of-truth decision
 
-- Archive JSON is bundled into the application. Because the archive exists, `GET /api/setlists` currently returns archive data even when D1 is available.
-- `POST`, `PUT`, and `DELETE` write to D1. They do not update archive JSON.
-- The browser updates its in-memory view from a successful write response, but a reload reads the archive again. A D1 write can therefore appear successful and then disappear from the visible archive-backed view.
-- localStorage is a best-effort recovery cache, not a source of truth. It now uses a versioned envelope, accepts the legacy array shape, salvages valid partial rows, and ignores malformed/unsupported values without blocking startup.
+Archive JSON under `初期移行データ/` is the single source of truth for runtime setlist data.
 
-This is a split read/write model, not a reliable dual-write model. It can drift by design.
+| Operation | Active data path |
+| --- | --- |
+| Read | Bundled archive JSON through `GET /api/setlists` |
+| Create / Update / Delete | Disabled; API returns `405 Method Not Allowed` |
+| Deploy | Validated archive JSON is bundled into the Worker artifact |
+| Migration | Edit archive JSON locally, validate, review, then deploy with Human Approval |
+| Backup | Git history plus an external backup of the repository/archive |
 
-## PUT transaction boundary
+The browser has no local write fallback. D1 is not bound in `wrangler.jsonc` and is not reachable from the runtime route.
 
-Reordering has two non-transactional phases: update song rows, then update `setlist_songs.position`. A rejection during either `Promise.all` can leave some writes applied. Payload validation now runs before writes, and automated tests capture first-phase failure, second-phase partial failure, and convergent retry behavior. There is still no atomic rollback.
+## Why archive JSON
 
-Until the architecture is changed:
+The product is a personal, low-frequency, read/analysis application. It does not currently need Production editing. Keeping the already-rendered archive as the only runtime data store removes unauthenticated mutations and split-brain behavior without adding an authentication service or synchronization layer.
 
-1. Treat a 500 response as potentially partially applied.
-2. Reload the D1 representation before retrying when an operator has a D1-specific inspection path.
-3. Retry the complete desired ordering; updates are intended to converge to the submitted positions.
-4. If state remains inconsistent, stop writes and compare song IDs plus `setlist_songs.position` before manual repair.
+The legacy D1 database and local Drizzle schema are retained only for read-only comparison and possible future migration. They are not runtime authorities.
 
-## Human decision required
+## Legacy D1 reconciliation gate
 
-The runtime source of truth must be chosen before changing the read path or adding dual writes:
+No Production data was changed by this remediation. Before the next Production deployment:
 
-- D1 as runtime source of truth, with archive JSON retained as immutable import/seed history.
-- Archive JSON as source of truth, which requires writes to be disabled or converted into an explicit archive-generation workflow.
-- Deliberate synchronization, which requires conflict rules, transaction/retry semantics, ownership, and drift monitoring.
+1. Export or query D1 read-only and back it up.
+2. Compare setlists, ordered membership, and song metadata against the archive.
+3. Resolve any D1-only intentional edits into reviewed archive JSON.
+4. Re-run archive validation and the full application test/build suite.
+5. Deploy only after Human Approval.
 
-The first option is operationally simplest, but selecting it changes product behavior and is not decided by this maintenance loop. Production migration, data reconciliation, and switching the GET path remain Human Approval gates.
+## Rollback plan
 
-## Drift checks before a future switch
+If a future read-only deployment regresses data or rendering, roll back the Worker deployment to the previous version. The legacy D1 database is unchanged, and the prior archive snapshot remains available in Git history. Do not restore D1 into runtime implicitly; any return to D1 requires a new architecture decision, authentication plan, and reviewed migration.
 
-- Compare setlist IDs and stable song identifiers between archive and D1.
-- Compare ordered membership separately from song metadata.
-- Decide how archive-only, D1-only, duplicate, and edited rows are resolved.
-- Back up D1 and preserve the archive snapshot used for reconciliation.
-- Run read-only comparison first; do not repair Production as part of the audit.
+## Future editing UI
+
+Reintroduce editing only when there is a concrete need. At that point, select one authenticated write workflow and move reads to the same authoritative store in the same release. Cloudflare Access is the preferred first option for a single-user operator surface; application authentication is justified only if Access cannot cover the actual interaction model.
