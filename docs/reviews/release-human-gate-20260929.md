@@ -1,15 +1,15 @@
 ---
 type: release-review
 project: live-setlist-app
-status: approved-release-in-progress
+status: released
 created: 2026-09-29
 updated: 2026-09-29
-revision: 2
+revision: 3
 ---
 
 # Release Human Gate review
 
-Human承認後、Archive分類（14 `festival` / 4 `one_man` / 0 `taiban`）とSong表示統合（`あつまれ！パーティーピーポー` 5件、`Mr.Cosmo` 2件）を反映した。localStorage migration safetyもRelease対象として検証済み。Production D1 migrationとDeployは、Cloudflare Access Gate通過後に実施する。
+Human承認後、Archive分類、Song表示統合、multi-device migration、Cloudflare Access、Production D1 migration、Worker deploy、PC / Smartphone同期確認を完了した。Release commitは`89eef06ca24bade29174902a5d7da1c823a29080`、Production Worker Versionは`9e63d338-fece-4b4c-919d-3400e0358431`。
 
 ## Approved Event Types
 
@@ -38,21 +38,19 @@ Human承認後、Archive分類（14 `festival` / 4 `one_man` / 0 `taiban`）とS
 
 ## Approved Song normalization
 
-### あつまれ!パーティーピーポー
+### あつまれ！パーティーピーポー
 
 - Artist: ヤバイTシャツ屋さん
 - Normalized key: `ヤバイtシャツ屋さん::あつまれ!パーティーピーポー`
-- `あつまれ！パーティーピーポー`: 4回（DAIENKAI 2025 Day 2、COUNTDOWN JAPAN 25/26 12/30、DAIENKAI 2026 Day 1、Magical Tank-top Parade）
-- `あつまれ!パーティーピーポー`: 1回（京都大作戦2026）
-- 現行aggregationはNFKC normalizationにより既に合計5回として扱う。Archive mergeは表示文字を統一するだけでcount/identityは変わらない。
+- `あつまれ！パーティーピーポー`: 5回へ表示統一済み。
+- NFKC normalized identityと合計countは変更なし。
 
 ### Mr.COSMO / Mr.Cosmo
 
 - Artist: 四星球
 - Normalized key: `四星球::mr.cosmo`
-- `Mr.Cosmo`: 1回（COUNTDOWN JAPAN 25/26 12/31）
-- `Mr.COSMO`: 1回（DAIENKAI 2026 Day 2）
-- 現行aggregationはcase foldingにより既に合計2回として扱う。Archive mergeは表示文字を統一するだけでcount/identityは変わらない。
+- `Mr.Cosmo`: 2回へ表示統一済み。
+- Case-folded normalized identityと合計countは変更なし。
 
 ## Multi-device migration safety
 
@@ -71,26 +69,26 @@ Scenario結果は「B. Event CをMigration候補としてHumanへ提示し、承
 ## Production state
 
 - URL: `https://live-setlist-app.garage-lab.workers.dev/`
-- 2026-09-28 23:59 JST前後の未認証probe: Root `200`、`/api/setlists` `200`、`/api/planner` `404`（未deploy route）。Access redirect/blockはない。
-- 結論: 現行Production Workerに有効なAccess保護はない。`/*`は保護されていない。
-- Release条件: Zero TrustでSelf-hosted applicationを作成し、destinationにWorker `live-setlist-app`（全route、必要ならpreviewも含む）を選択。Allowは本人identityだけにし、未認証Root/APIがAccess login/blockになりorigin responseへ到達しないことを確認する。
+- Access: Worker全routeを本人identityだけに限定して有効化済み。
+- 未認証Root、`/api/planner`、`/api/setlists`はすべてAccess loginへの`302`で、origin responseへ到達しない。
+- 認証済み`/api/planner`はPASS。D1 `updated_by`にAccess本人identityが記録されることを確認済み。
+- Active Worker Version: `9e63d338-fece-4b4c-919d-3400e0358431`（100%）。
 
 ## Remote D1 state and migration plan
 
 ### Current
 
 - Database: `live-setlist-prod` / `9f616af4-82b0-4385-8f70-d13b82f7a6fa`
-- Region: APAC; read replication disabled; application tables/rows are empty。
-- `sqlite_master`に見えるのはCloudflare internal `_cf_KV`だけ。
-- Pending migrations: `0000_melodic_may_parker.sql` and `0001_cloud_planner.sql`。
-- Current Time Travel bookmark: `00000002-00000002-000050f4-7640925c09edab9c40962e9e9967f376`（調査時点）。
-- Existing export: `C:\dev\backups\live-setlist-app\2026-09-28\live-setlist-prod-full.sql`; SHA-256 `309D1516F5D4F4F792B17106F7B761312F848C634E3028D70E6EB8ED39DF7398`; empty DBを示すPRAGMAのみ。
+- Region: APAC; read replication disabled。
+- `0000_melodic_may_parker.sql`と`0001_cloud_planner.sql`は適用済み。Pendingは0。
+- Application tables: `setlists`, `songs`, `setlist_songs`, `planner_state`, `planner_migrations`。
+- Planner verification: revision 3、4 events、79 songs、migration receipt 1件。
 
 ### Pre-migration
 
 1. `wrangler d1 info live-setlist-prod --json`
 2. `wrangler d1 time-travel info live-setlist-prod --json`で直前bookmarkを保存。
-3. `wrangler d1 export live-setlist-prod --remote --output C:\dev\backups\live-setlist-app\2026-09-29\pre-cloud-planner.sql`
+3. `wrangler d1 export live-setlist-prod --remote --output C:\dev\backups\live-setlist-app\2026-09-29\pre-release-live-setlist-prod.sql`
 4. `Get-FileHash -Algorithm SHA256`、file size、SQL内容を確認。
 5. `wrangler d1 migrations list live-setlist-prod --remote`でpendingを再確認。
 
@@ -108,6 +106,8 @@ Scenario結果は「B. Event CをMigration候補としてHumanへ提示し、承
 4. Access認証後にPlanner GET、空Cloud import、PUT、stale revision 409、別端末reviewed mergeを確認。
 5. localStorageが両端末に残り、Cloud failure時にも変更されないことを確認。
 
+実施結果: bookmark `00000004-00000000-000050f4-d9e8cdb20994c00f2bf6f3052eb259ec`、export size 224 bytes、SHA-256 `B60C06C82D51EB85C953000442EB148F8676A1B92D7F0D0360864124B11B85A1`。Migration、schema、pending 0、Planner GET/PUT、409、reviewed mergeをすべて確認済み。
+
 ### Rollback
 
 - Deploy前のschema問題: 直前bookmarkへTime Travel restoreする。これはDBを上書きする破壊操作なので、別Human承認後だけ行う。
@@ -124,3 +124,7 @@ Scenario結果は「B. Event CをMigration候補としてHumanへ提示し、承
 - Playwright: 6/6 PASS（375/390/430/1024、keyboard、revision 409、reviewed merge API）
 - Production dependency audit: 0 vulnerabilities
 - Archive audit: 18 events / 813 tracks; no mutation
+- Production PC registration / Smartphone read / Smartphone update to PC: PASS
+- Production stale revision 409: PASS
+- Production localStorage candidate review / approved cross-device merge: PASS
+- Production authenticated Planner API / Access identity propagation: PASS

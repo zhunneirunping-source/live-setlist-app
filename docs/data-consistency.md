@@ -4,7 +4,7 @@ Updated: 2026-09-29
 
 ## Source-of-truth decision
 
-The application has two non-overlapping authoritative domains until the reviewed Archive migration is approved.
+The released application has two non-overlapping authoritative domains.
 
 | Data | Authority | Runtime role |
 | --- | --- | --- |
@@ -27,7 +27,9 @@ When Cloud is already non-empty, an unrecorded local migration source is compare
 
 ## Authentication boundary
 
-Production activation requires Cloudflare Access on the entire Worker route space (`/*`). `/api/planner` also requires the Access-authenticated email header outside localhost. Header checking is defense in depth; it is not a substitute for the Access policy because an unprotected public origin could receive spoofed request headers.
+Production uses Cloudflare Access on the entire Worker route space (`/*`) with an exact-owner identity policy. `/api/planner` also requires the Access-authenticated email header outside localhost. Header checking remains defense in depth; it is not a substitute for the edge policy.
+
+Release verification on 2026-09-29 confirmed anonymous Access redirects for Root and both APIs, authenticated Planner reads/writes, stale revision `409`, reviewed local-only import, and cross-device synchronization.
 
 ## Archive classification and normalization
 
