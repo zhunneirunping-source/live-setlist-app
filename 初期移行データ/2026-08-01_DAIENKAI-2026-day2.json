@@ -3,6 +3,7 @@
     "title": "DAIENKAI 2026 — Day 2",
     "venue": "東京ガーデンシアター",
     "date": "2026-08-01",
+    "eventType": "festival",
     "notes": "festival; attended all listed artists. Primary source: ソノダマン (@yoppeleah) live report. Rehearsals retained and clearly labeled."
   },
   "songs": [
@@ -565,7 +566,7 @@
       "notes": "festival; main set; artist set position 6"
     },
     {
-      "title": "Mr.COSMO",
+      "title": "Mr.Cosmo",
       "artist": "四星球",
       "key": null,
       "duration": null,

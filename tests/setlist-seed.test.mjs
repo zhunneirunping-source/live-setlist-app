@@ -140,12 +140,12 @@ test("normalizes the provided setlist JSON payload into app-ready songs", () => 
   });
 });
 
-test("detects malformed, old-version, duplicate, missing-artist, and dangling archive data", () => {
+test("detects malformed, old-version, event type, duplicate, missing-artist, and dangling archive data", () => {
   assert.deepEqual(validateSetlistSeed(null), [{ code: "MALFORMED_ROOT", path: "$" }]);
 
   const issues = validateSetlistSeed({
     schemaVersion: 99,
-    setlist: { id: 7, title: "Recovery test" },
+    setlist: { id: 7, title: "Recovery test", eventType: "unknown" },
     songs: [
       { id: 3, setlistId: 7, title: "Good", artist: "Artist", position: 1 },
       { id: 3, setlistId: 8, title: "Duplicate", artist: "", position: 1 },
@@ -155,6 +155,7 @@ test("detects malformed, old-version, duplicate, missing-artist, and dangling ar
 
   assert.deepEqual(issues.map((issue) => issue.code), [
     "UNSUPPORTED_SCHEMA_VERSION",
+    "INVALID_EVENT_TYPE",
     "MISSING_ARTIST",
     "DUPLICATE_SONG_ID",
     "DUPLICATE_POSITION",

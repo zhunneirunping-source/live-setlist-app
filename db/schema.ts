@@ -31,3 +31,17 @@ export const setlistSongs = sqliteTable("setlist_songs", {
   position: integer("position").notNull().default(0),
   cue: text("cue").notNull().default(""),
 });
+
+export const plannerState = sqliteTable("planner_state", {
+  id: integer("id").primaryKey(),
+  document: text("document").notNull(),
+  revision: integer("revision").notNull().default(0),
+  updatedAt: text("updated_at").notNull(),
+  updatedBy: text("updated_by").notNull(),
+});
+
+export const plannerMigrations = sqliteTable("planner_migrations", {
+  migrationKey: text("migration_key").primaryKey(),
+  importedBy: text("imported_by").notNull(),
+  importedAt: text("imported_at").notNull(),
+});

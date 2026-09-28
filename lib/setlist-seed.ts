@@ -14,6 +14,7 @@ export type SetlistSeed = {
     title?: string;
     venue?: string;
     date?: string;
+    eventType?: "festival" | "one_man" | "taiban";
     notes?: string;
   };
   songs?: SetlistSeedSong[];
@@ -36,6 +37,7 @@ export type NormalizedSetlistSeed = {
     title: string;
     venue: string;
     date: string;
+    eventType: "festival" | "one_man" | "taiban" | null;
     notes: string;
   };
   songs: NormalizedSetlistSong[];
@@ -70,6 +72,7 @@ export function validateSetlistSeed(seed: unknown): SetlistSeedIssue[] {
   if (schemaVersion != null && schemaVersion !== 1) issues.push({ code: "UNSUPPORTED_SCHEMA_VERSION", path: "$.schemaVersion" });
   const setlist = isRecord(seed.setlist) ? seed.setlist : seed;
   if (typeof setlist.title !== "string" || !setlist.title.trim()) issues.push({ code: "MISSING_SETLIST", path: "$.setlist" });
+  if (setlist.eventType != null && !["festival", "one_man", "taiban"].includes(String(setlist.eventType))) issues.push({ code: "INVALID_EVENT_TYPE", path: "$.setlist.eventType" });
   if (!Array.isArray(seed.songs)) {
     issues.push({ code: "MALFORMED_SONGS", path: "$.songs" });
     return issues;
@@ -137,6 +140,7 @@ export function normalizeSetlistSeed(seed: SetlistSeed): NormalizedSetlistSeed {
       title: setlist.title?.trim() || "Untitled setlist",
       venue: setlist.venue?.trim() || "TBD",
       date: setlist.date?.trim() || new Date().toISOString().slice(0, 10),
+      eventType: ["festival", "one_man", "taiban"].includes(String(setlist.eventType)) ? setlist.eventType ?? null : null,
       notes: setlist.notes?.trim() || "",
     },
     songs: normalizedSongs,

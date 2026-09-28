@@ -38,13 +38,13 @@ test("server-renders the setlist dashboard shell", async () => {
   assert.match(html, developmentPreviewMeta);
   assert.match(html, /<title>Live Setlist App<\/title>/i);
   assert.match(html, /Live Setlist App/);
-  assert.match(html, /次のライブと、終わった後の記録/);
+  assert.match(html, /ライブ参戦履歴/);
   assert.match(html, /対応が必要/);
   assert.match(html, /今すぐ対応する記録はありません/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
-test("keeps the dashboard UI self-contained and disposable", async () => {
+test("keeps the dashboard UI self-contained with cloud planner writes isolated from archive writes", async () => {
   const [page, dashboard, layout, css] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/SetlistDashboard.tsx", import.meta.url), "utf8"),
@@ -57,7 +57,8 @@ test("keeps the dashboard UI self-contained and disposable", async () => {
   assert.match(dashboard, /use client/);
   assert.match(dashboard, /localStorage/);
   assert.match(dashboard, /ライブを登録/);
-  assert.doesNotMatch(dashboard, /method:\s*["'](?:POST|PUT|DELETE)["']/);
+  assert.match(dashboard, /fetch\("\/api\/planner"/);
+  assert.doesNotMatch(dashboard, /localStorage\.setItem/);
   assert.match(layout, /title:\s*"Live Setlist App"/);
   assert.match(css, /setlist|song|track|setlist-panel/i);
   assert.doesNotMatch(css, /react-loading-skeleton|sites-skeleton/);

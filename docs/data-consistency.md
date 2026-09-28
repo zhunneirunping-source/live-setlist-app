@@ -1,41 +1,45 @@
 # Data consistency and recovery
 
-Updated: 2026-09-28
+Updated: 2026-09-29
 
 ## Source-of-truth decision
 
-Archive JSON under `初期移行データ/` is the single source of truth for runtime setlist data.
+The application has two non-overlapping authoritative domains until the reviewed Archive migration is approved.
 
-| Operation | Active data path |
-| --- | --- |
-| Read | Bundled archive JSON through `GET /api/setlists` |
-| Create / Update / Delete | Disabled; API returns `405 Method Not Allowed` |
-| Deploy | Validated archive JSON is bundled into the Worker artifact |
-| Migration | Edit archive JSON locally, validate, review, then deploy with Human Approval |
-| Backup | Git history plus an external backup of the repository/archive |
+| Data | Authority | Runtime role |
+| --- | --- | --- |
+| Historical 18-event Archive | `初期移行データ/*.json` | Read-only history and aggregation input |
+| Mutable Planner | Cloudflare D1 `planner_state` | Event, lottery, performance, ordered track, playlist status |
+| `live-setlist-planner:v1` | Migration source only | Empty-Cloud import or Human-reviewed additive import; never deleted automatically |
+| React state / browser cache | Cache only | Never a durable authority |
 
-The browser has no local write fallback. D1 is not bound in `wrangler.jsonc` and is not reachable from the runtime route.
+D1 stores a versioned Planner document and monotonically increasing revision. Every update includes the last-read revision. A stale PC/Smartphone update receives `409` plus the latest document instead of silently overwriting another device.
 
-## Why archive JSON
+## localStorage migration
 
-The product is a personal, low-frequency, read/analysis application. It does not currently need Production editing. Keeping the already-rendered archive as the only runtime data store removes unauthenticated mutations and split-brain behavior without adding an authentication service or synchronization layer.
+1. Read Cloud Planner.
+2. If Cloud is empty and valid local v1 data exists, submit an idempotent migration key and the document.
+3. D1 writes the migration receipt and Planner document in one `batch` transaction.
+4. The client accepts Cloud as authoritative only after the response confirms the stored document.
+5. Duplicate keys are safe; failures keep localStorage unchanged.
 
-The legacy D1 database and local Drizzle schema are retained only for read-only comparison and possible future migration. They are not runtime authorities.
+When Cloud is already non-empty, an unrecorded local migration source is compared rather than ignored. Local-only records are shown as additive candidates; same-ID or same-canonical-song differences are conflicts. Human action may add candidates, but neither the client nor server may overwrite/delete existing Cloud records. The server validates the additive superset, revision, and optional migration receipt. Conflicts remain in localStorage for Human Review.
 
-## Legacy D1 reconciliation gate
+## Authentication boundary
 
-No Production data was changed by this remediation. Before the next Production deployment:
+Production activation requires Cloudflare Access on the entire Worker route space (`/*`). `/api/planner` also requires the Access-authenticated email header outside localhost. Header checking is defense in depth; it is not a substitute for the Access policy because an unprotected public origin could receive spoofed request headers.
 
-1. Export or query D1 read-only and back it up.
-2. Compare setlists, ordered membership, and song metadata against the archive.
-3. Resolve any D1-only intentional edits into reviewed archive JSON.
-4. Re-run archive validation and the full application test/build suite.
-5. Deploy only after Human Approval.
+## Archive classification and normalization
 
-## Rollback plan
+The 2026-09-29 Human Gate approved and applied Event Type classification to every Archive event: 14 `festival`, 4 `one_man`, and 0 `taiban`. UI labels are fixed to フェス / 単独 / 対バン.
 
-If a future read-only deployment regresses data or rendering, roll back the Worker deployment to the previous version. The legacy D1 database is unchanged, and the prior archive snapshot remains available in Git history. Do not restore D1 into runtime implicitly; any return to D1 requires a new architecture decision, authentication plan, and reviewed migration.
+The same gate approved display normalization for two already-shared normalized identities: five occurrences of `あつまれ！パーティーピーポー` and two occurrences of `Mr.Cosmo`. The normalization keys and identity behavior were not changed. `npm run data:audit` must continue to report 18 events / 813 tracks and no Human Review candidates.
 
-## Future editing UI
+Archive JSON remains the read-only authority. D1 migrations `0000` and `0001` create tables but do not import, rewrite, or delete Archive history.
 
-Reintroduce editing only when there is a concrete need. At that point, select one authenticated write workflow and move reads to the same authoritative store in the same release. Cloudflare Access is the preferred first option for a single-user operator surface; application authentication is justified only if Access cannot cover the actual interaction model.
+## Rollback
+
+- Code rollback: deploy the previous Worker version.
+- Schema: migration `0001_cloud_planner.sql` is additive; do not drop the new tables during rollback.
+- Data: restore from the pre-migration D1 export/Time Travel only after reviewing the target timestamp.
+- localStorage: remains available as recovery evidence because automatic deletion is prohibited.

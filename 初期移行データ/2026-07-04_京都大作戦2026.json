@@ -3,6 +3,7 @@
     "title": "京都大作戦2026 — 7月4日",
     "venue": "京都府立山城総合運動公園 太陽が丘特設野外ステージ",
     "date": "2026-07-04",
+    "eventType": "festival",
     "notes": "festival; selected attended artists only; multiple public setlist reports cross-checked."
   },
   "songs": [
@@ -70,7 +71,7 @@
       "notes": "festival; main set; artist set position 4"
     },
     {
-      "title": "あつまれ!パーティーピーポー",
+      "title": "あつまれ！パーティーピーポー",
       "artist": "ヤバイTシャツ屋さん",
       "key": null,
       "duration": null,

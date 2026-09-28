@@ -5,10 +5,11 @@ const archiveModules = import.meta.glob("../../../初期移行データ/*.json",
   eager: true,
   import: "default",
 }) as Record<string, {
-  setlist?: { title?: string; venue?: string; date?: string; notes?: string };
+  setlist?: { title?: string; venue?: string; date?: string; eventType?: "festival" | "one_man" | "taiban"; notes?: string };
   title?: string;
   venue?: string;
   date?: string;
+  eventType?: "festival" | "one_man" | "taiban";
   notes?: string;
   songs?: Array<{
     title?: string;
@@ -50,6 +51,7 @@ function getArchiveData(selectedSetlistId?: number | null) {
           title: String(setlist.title ?? "Untitled setlist"),
           venue: String(setlist.venue ?? "TBD"),
           date: String(setlist.date ?? ""),
+          eventType: ["festival", "one_man", "taiban"].includes(String(setlist.eventType)) ? setlist.eventType ?? null : null,
           notes: String(setlist.notes ?? ""),
         },
         songs: (archive.songs ?? []).map((song, index) => ({

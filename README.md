@@ -9,7 +9,7 @@
 - 収集したセットリストからアーティスト構成比と曲ランキングを集計
 - 初期移行データを基準にした、実データ寄りの表示を優先
 - Cloudflare D1 と共存しつつ、ローカルの JSON からも読み取れる構成
-- ブラウザ内に、今後のライブ・抽選・参戦後セトリ・プレイリスト候補を保存
+- Cloudflare D1 に、今後のライブ・抽選・参戦後セトリ・プレイリスト候補を保存
 
 ## 主な技術
 
@@ -20,7 +20,7 @@
 
 The deployed product is intentionally read-only. `GET /api/setlists` reads the archive; `POST`, `PUT`, and `DELETE` return `405 Method Not Allowed`. See `docs/data-consistency.md` before reintroducing editing or reconciling the legacy D1 data.
 
-The planning UI is local-first: mutable data is stored in the current browser profile under a versioned key and is merged with the bundled archive only for display and aggregation. It is not synchronized across devices and does not reopen the public API write surface.
+The planning UI uses authenticated D1 storage with optimistic revision checks. The old `live-setlist-planner:v1` browser value is a preserved migration source: an empty Cloud can import it once, while a non-empty Cloud shows local-only records for explicit additive review and keeps conflicts local. It is never deleted automatically.
 
 Archive and seed imports are validated before use. Unknown schema versions, malformed/null songs, missing artists, duplicate source song IDs or positions, and mismatched setlist references are rejected or excluded with reason codes. This detection does not select an archive/D1 source of truth or repair data automatically.
 
@@ -53,19 +53,21 @@ npx wrangler login
 npm run deploy
 ```
 
-`wrangler.jsonc` intentionally has no D1 binding. Production deployment remains a Human Approval action.
+`wrangler.jsonc` declares the D1 binding, but remote migration and Production deployment remain Human Approval actions. Cloudflare Access must protect the entire Worker route space before activation.
 
 ## データソース
 
-- Runtime reads use `初期移行データ/` only.
-- Runtime writes are disabled; update and validate archive JSON before a reviewed deployment.
+- Historical Archive reads use `初期移行データ/`.
+- Mutable Planner reads/writes use D1 through `/api/planner`.
+- Browser localStorage and UI state are not authoritative after migration.
+- A device whose migration key is not recorded receives a migration-review panel; Cloud records cannot be removed or overwritten by that flow.
 - 公演別の集計とランキングは、実データに基づいて再計算される前提です
 
 ## ディレクトリの見どころ
 
 - `app/SetlistDashboard.tsx` : ダッシュボードと公演詳細の UI
 - `app/api/setlists/route.ts` : archive read API and explicit write rejection
-- `db/schema.ts` : legacy D1 schema retained for read-only reconciliation work
+- `db/schema.ts` : legacy Archive tables plus the additive Cloud Planner state and migration-ledger tables
 
 CI-friendly checks are `npm run typecheck`, `npm run lint`, `npm run test:unit`, and `npm run build`. `npm test` intentionally includes a production build before the Node test suite; do not run both `npm test` and a separate build in the same CI job unless duplicate build coverage is desired.
 - `wrangler.jsonc` : Cloudflare deploy config

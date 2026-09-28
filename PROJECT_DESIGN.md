@@ -83,6 +83,14 @@ Accessibilityまたは重大なUX問題は、上位要件に由来していて�
 ## Local planner interaction decision (2026-09-28)
 
 - Primary flow is Home needs-action → live status update → post-event setlist → playlist checklist.
-- Five peer destinations reuse the existing tab pattern; on narrow screens the tab strip scrolls horizontally instead of shrinking labels below usable size.
+- Five peer destinations reuse the existing tab pattern on desktop and transform into a fixed five-column bottom navigation on mobile. All destinations remain visible without horizontal scrolling.
 - Registration and lottery fields use progressive disclosure. Persistent labels, 44px controls, text status labels, and visible focus are required.
-- Device-local persistence is stated in content so the UI does not imply account-backed synchronization.
+- Migration status and Cloud-save failures are stated honestly; the UI must not imply that an unconfirmed local value has synchronized.
+
+## Cloud planner UX decision (2026-09-28)
+
+- D1 is the mutable Planner authority; localStorage is only a preserved one-time migration source.
+- Home hierarchy is attendance history, upcoming lives, needs action, then playlist candidates.
+- Mobile navigation uses the Consumer App profile because the five destinations are daily peer tasks; analytics composition continues to use the Dashboard profile.
+- Existing archive Event Type remains visibly unclassified until Human Review. The chart must not silently map unknown events to one-man shows.
+- Cards remain limited to independent summaries/forms. Repeated data uses rows and lists; shadows remain limited to navigation/dialog elevation.
