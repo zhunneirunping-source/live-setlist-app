@@ -17,6 +17,10 @@
 - Wrangler for Cloudflare deployment
 - archive JSON under `初期移行データ/` as the canonical imported dataset
 
+Runtime reads and writes currently use different paths. See `docs/data-consistency.md` before changing the archive/D1 source-of-truth behavior or performing data reconciliation.
+
+Archive and seed imports are validated before use. Unknown schema versions, malformed/null songs, missing artists, duplicate source song IDs or positions, and mismatched setlist references are rejected or excluded with reason codes. This detection does not select an archive/D1 source of truth or repair data automatically.
+
 ## 使い方
 
 ### ローカル開発
@@ -59,6 +63,8 @@ npm run deploy
 - `app/SetlistDashboard.tsx` : ダッシュボードと公演詳細の UI
 - `app/api/setlists/route.ts` : D1 / JSON の取得ロジック
 - `db/schema.ts` : setlists, songs, setlist_songs のスキーマ
+
+CI-friendly checks are `npm run typecheck`, `npm run lint`, `npm run test:unit`, and `npm run build`. `npm test` intentionally includes a production build before the Node test suite; do not run both `npm test` and a separate build in the same CI job unless duplicate build coverage is desired.
 - `wrangler.jsonc` : Cloudflare deploy config
 - `初期移行データ/` : 公演データの移行元
 

@@ -1,12 +1,9 @@
 import assert from "node:assert/strict";
-import { access, readFile, readdir } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const developmentPreviewMeta =
   /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-const templateRoot = new URL("../", import.meta.url);
-const previewRoot = new URL("../app/_sites-preview/", import.meta.url);
-
 async function render() {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
@@ -35,10 +32,10 @@ test("server-renders the setlist dashboard shell", async () => {
 
   const html = await response.text();
   assert.match(html, developmentPreviewMeta);
-  assert.match(html, /<title>Setlist Manager<\/title>/i);
-  assert.match(html, /Setlist Manager/);
+  assert.match(html, /<title>Live Setlist App<\/title>/i);
+  assert.match(html, /Live Setlist App/);
   assert.match(html, /Live setlist overview/);
-  assert.match(html, /Add song/);
+  assert.match(html, /No setlists available\./);
   assert.match(html, /Selected show|Live setlist overview/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
@@ -55,7 +52,7 @@ test("keeps the dashboard UI self-contained and disposable", async () => {
   assert.match(page, /metadata:/);
   assert.match(dashboard, /use client/);
   assert.match(dashboard, /localStorage/);
-  assert.match(layout, /title:\s*"Setlist Manager"/);
+  assert.match(layout, /title:\s*"Live Setlist App"/);
   assert.match(css, /setlist|song|track|setlist-panel|song-form/i);
   assert.doesNotMatch(css, /react-loading-skeleton|sites-skeleton/);
 });

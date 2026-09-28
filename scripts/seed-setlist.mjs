@@ -1,7 +1,7 @@
 import { readFile, readdir, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { normalizeSetlistSeed } from "../lib/setlist-seed.js";
+import { assertValidSetlistSeed, normalizeSetlistSeed } from "../lib/setlist-seed.js";
 
 export async function collectSeedEntries(inputPath) {
   const absolutePath = path.resolve(inputPath);
@@ -16,7 +16,9 @@ export async function collectSeedEntries(inputPath) {
     const payloads = await Promise.all(
       files.map(async (file) => {
         const raw = await readFile(file, "utf8");
-        return normalizeSetlistSeed(JSON.parse(raw));
+        const payload = JSON.parse(raw);
+        assertValidSetlistSeed(payload);
+        return normalizeSetlistSeed(payload);
       }),
     );
 
@@ -24,7 +26,9 @@ export async function collectSeedEntries(inputPath) {
   }
 
   const raw = await readFile(absolutePath, "utf8");
-  return [normalizeSetlistSeed(JSON.parse(raw))];
+  const payload = JSON.parse(raw);
+  assertValidSetlistSeed(payload);
+  return [normalizeSetlistSeed(payload)];
 }
 
 function escapeSqlString(value) {

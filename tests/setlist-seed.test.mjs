@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import test from "node:test";
 
-import { normalizeSetlistSeed } from "../lib/setlist-seed.js";
+import { normalizeSetlistSeed, validateSetlistSeed } from "../lib/setlist-seed.js";
 import { collectSeedEntries, toSql } from "../scripts/seed-setlist.mjs";
 
 test("collects multiple setlist JSON files from a directory archive", async () => {
@@ -138,4 +138,33 @@ test("normalizes the provided setlist JSON payload into app-ready songs", () => 
     position: 2,
     notes: "Big chorus",
   });
+});
+
+test("detects malformed, old-version, duplicate, missing-artist, and dangling archive data", () => {
+  assert.deepEqual(validateSetlistSeed(null), [{ code: "MALFORMED_ROOT", path: "$" }]);
+
+  const issues = validateSetlistSeed({
+    schemaVersion: 99,
+    setlist: { id: 7, title: "Recovery test" },
+    songs: [
+      { id: 3, setlistId: 7, title: "Good", artist: "Artist", position: 1 },
+      { id: 3, setlistId: 8, title: "Duplicate", artist: "", position: 1 },
+      null,
+    ],
+  });
+
+  assert.deepEqual(issues.map((issue) => issue.code), [
+    "UNSUPPORTED_SCHEMA_VERSION",
+    "MISSING_ARTIST",
+    "DUPLICATE_SONG_ID",
+    "DUPLICATE_POSITION",
+    "DANGLING_SETLIST_REFERENCE",
+    "MALFORMED_SONG",
+  ]);
+});
+
+test("detects a partial archive without a songs collection", () => {
+  assert.deepEqual(validateSetlistSeed({ setlist: { title: "Partial" } }), [
+    { code: "MALFORMED_SONGS", path: "$.songs" },
+  ]);
 });

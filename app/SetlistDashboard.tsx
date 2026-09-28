@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { readSongCacheFromStorage, writeSongCache } from "../lib/song-cache.js";
 
 type Song = {
   id: number;
@@ -118,6 +119,7 @@ export function SetlistDashboard() {
 
   const loadArchiveData = async () => {
     const requestId = ++requestIdRef.current;
+    const cached = readSongCacheFromStorage(window.localStorage, STORAGE_KEY);
 
     try {
       const response = await fetch("/api/setlists?source=archive", { cache: "no-store" });
@@ -125,7 +127,7 @@ export function SetlistDashboard() {
         throw new Error("Failed to load setlists");
       }
 
-      const data = await response.json();
+      const data = await response.json() as { setlists?: Array<Partial<SetlistMeta>> };
       const setlistRows = Array.isArray(data.setlists) && data.setlists.length > 0
         ? data.setlists.map((setlist: Partial<SetlistMeta>) => ({
             id: Number(setlist.id ?? 0),
@@ -141,10 +143,10 @@ export function SetlistDashboard() {
         setlistRows.map(async (setlist) => {
           const setlistResponse = await fetch(`/api/setlists?source=archive&setlistId=${setlist.id}`, { cache: "no-store" });
           if (!setlistResponse.ok) {
-            return { ...setlist, songs: [] as Song[] };
+            return { ...setlist, songs: cached && cached.setlistId === setlist.id ? cached.songs as Song[] : [] as Song[] };
           }
 
-          const payload = await setlistResponse.json();
+          const payload = await setlistResponse.json() as { songs?: Array<Partial<Song> & { durationSeconds?: number }> };
           const songsForSetlist = Array.isArray(payload.songs)
             ? payload.songs.map((song: Partial<Song> & { durationSeconds?: number }) => normalizeSong(song))
             : [];
@@ -175,9 +177,13 @@ export function SetlistDashboard() {
         return;
       }
 
-      setArchive([]);
-      setSelectedSetlistId(defaultSetlist.id);
-      setSongs(defaultSongs);
+      const recoveredSongs = cached?.songs as Song[] | undefined;
+      const recoveredSetlist = recoveredSongs?.length
+        ? { ...defaultSetlist, id: cached?.setlistId ?? 0, songs: recoveredSongs }
+        : null;
+      setArchive(recoveredSetlist ? [recoveredSetlist] : []);
+      setSelectedSetlistId(recoveredSetlist?.id ?? defaultSetlist.id);
+      setSongs(recoveredSongs ?? defaultSongs);
     } finally {
       setIsLoading(false);
     }
@@ -193,8 +199,8 @@ export function SetlistDashboard() {
 
   useEffect(() => {
     if (typeof window === "undefined" || isLoading) return;
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(songs));
-  }, [songs, isLoading]);
+    writeSongCache(window.localStorage, STORAGE_KEY, selectedSetlistId, songs);
+  }, [songs, isLoading, selectedSetlistId]);
 
   const selectedSetlist = archive.find((setlist) => setlist.id === selectedSetlistId) ?? archive[0] ?? { ...defaultSetlist, songs: defaultSongs };
   const modalSetlist = archive.find((setlist) => setlist.id === modalSetlistId) ?? null;
@@ -339,10 +345,6 @@ export function SetlistDashboard() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [modalSetlistId]);
 
-  useEffect(() => {
-    setSelectedArtist(null);
-  }, [modalSetlistId]);
-
   const activeArtist =
     selectedArtist && modalArtists.some((group) => group.artist === selectedArtist)
       ? selectedArtist
@@ -378,7 +380,7 @@ export function SetlistDashboard() {
         throw new Error("Failed to create song");
       }
 
-      const data = await response.json();
+      const data = await response.json() as { songs?: Array<Partial<Song> & { durationSeconds?: number }> };
       const nextSongs = Array.isArray(data.songs)
         ? data.songs.map((song: Partial<Song> & { durationSeconds?: number }) => normalizeSong(song))
         : defaultSongs;
@@ -413,7 +415,7 @@ export function SetlistDashboard() {
         throw new Error("Failed to reorder songs");
       }
 
-      const data = await response.json();
+      const data = await response.json() as { songs?: Array<Partial<Song> & { durationSeconds?: number }> };
       const persistedSongs = Array.isArray(data.songs)
         ? data.songs.map((song: Partial<Song> & { durationSeconds?: number }) => normalizeSong(song))
         : nextSongs;
@@ -421,7 +423,7 @@ export function SetlistDashboard() {
       setSongs(persistedSongs);
       setArchive((current) => current.map((setlist) => setlist.id === selectedSetlist.id ? { ...setlist, songs: persistedSongs } : setlist));
     } catch {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(nextSongs));
+      writeSongCache(window.localStorage, STORAGE_KEY, selectedSetlist.id, nextSongs);
     }
   };
 
@@ -438,7 +440,7 @@ export function SetlistDashboard() {
         throw new Error("Failed to delete song");
       }
 
-      const data = await response.json();
+      const data = await response.json() as { songs?: Array<Partial<Song> & { durationSeconds?: number }> };
       const persistedSongs = Array.isArray(data.songs)
         ? data.songs.map((song: Partial<Song> & { durationSeconds?: number }) => normalizeSong(song))
         : nextSongs;
@@ -447,7 +449,7 @@ export function SetlistDashboard() {
       setArchive((current) => current.map((setlist) => setlist.id === selectedSetlist.id ? { ...setlist, songs: persistedSongs } : setlist));
     } catch {
       if (typeof window !== "undefined") {
-        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(nextSongs));
+        writeSongCache(window.localStorage, STORAGE_KEY, selectedSetlist.id, nextSongs);
       }
     }
   };

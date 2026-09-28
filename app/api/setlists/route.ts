@@ -1,6 +1,8 @@
 import { and, desc, eq, sql } from "drizzle-orm";
 import { getDb } from "../../../db";
 import { setlistSongs, setlists, songs } from "../../../db/schema";
+import { applyNonTransactionalReorder, validateReorderPayload } from "../../../lib/reorder-songs.js";
+import { validateSetlistSeed } from "../../../lib/setlist-seed.js";
 
 const archiveModules = import.meta.glob("../../../初期移行データ/*.json", {
   eager: true,
@@ -55,6 +57,11 @@ function getArchiveFallbackData(selectedSetlistId?: number | null) {
   const entries = Object.values(archiveModules)
     .filter(Boolean)
     .map((archive) => {
+      const issues = validateSetlistSeed(archive);
+      if (issues.length > 0) {
+        console.error(JSON.stringify({ event: "invalid_setlist_archive", issueCodes: issues.map((issue) => issue.code) }));
+        return null;
+      }
       const setlist = archive.setlist ?? archive;
       const songsSource = Array.isArray(archive.songs) ? archive.songs : [];
 
@@ -82,6 +89,7 @@ function getArchiveFallbackData(selectedSetlistId?: number | null) {
         songs: normalizedSongs,
       };
     })
+    .filter((entry): entry is NonNullable<typeof entry> => entry !== null)
     .sort((left, right) => {
       const leftDate = left.setlist.date || "";
       const rightDate = right.setlist.date || "";
@@ -296,15 +304,18 @@ export async function PUT(request: Request) {
     };
 
     const db = await getDb();
-    const nextSongs = payload.songs ?? [];
+    const nextSongs = payload.songs;
     const setlistId = Number(payload.setlistId ?? 0);
 
-    if (!setlistId) {
-      return Response.json({ error: "setlistId is required" }, { status: 400 });
+    const validationError = validateReorderPayload(setlistId, nextSongs);
+    if (validationError) {
+      return Response.json({ error: validationError }, { status: 400 });
     }
+    const songsToReorder = nextSongs!;
 
-    await Promise.all(
-      nextSongs.map((song, index) =>
+    await applyNonTransactionalReorder(
+      songsToReorder,
+      (song: (typeof songsToReorder)[number], index: number) =>
         db.update(songs)
           .set({
             title: song.title,
@@ -315,15 +326,10 @@ export async function PUT(request: Request) {
             position: index,
           })
           .where(eq(songs.id, song.id)),
-      ),
-    );
-
-    await Promise.all(
-      nextSongs.map((song, index) =>
+      (song: (typeof songsToReorder)[number], index: number) =>
         db.update(setlistSongs)
           .set({ position: index, cue: "" })
           .where(and(eq(setlistSongs.setlistId, setlistId), eq(setlistSongs.songId, song.id))),
-      ),
     );
 
     const rows = await db
