@@ -38,9 +38,9 @@ test("server-renders the setlist dashboard shell", async () => {
   assert.match(html, developmentPreviewMeta);
   assert.match(html, /<title>Live Setlist App<\/title>/i);
   assert.match(html, /Live Setlist App/);
-  assert.match(html, /Live setlist overview/);
-  assert.match(html, /No setlists available\./);
-  assert.match(html, /Selected show|Live setlist overview/);
+  assert.match(html, /次のライブと、終わった後の記録/);
+  assert.match(html, /対応が必要/);
+  assert.match(html, /今すぐ対応する記録はありません/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site/);
 });
 
@@ -55,8 +55,9 @@ test("keeps the dashboard UI self-contained and disposable", async () => {
   assert.match(page, /SetlistDashboard/);
   assert.match(page, /metadata:/);
   assert.match(dashboard, /use client/);
-  assert.doesNotMatch(dashboard, /localStorage|method:\s*["'](?:POST|PUT|DELETE)["']/);
-  assert.doesNotMatch(dashboard, /セットリスト編集|Save song/);
+  assert.match(dashboard, /localStorage/);
+  assert.match(dashboard, /ライブを登録/);
+  assert.doesNotMatch(dashboard, /method:\s*["'](?:POST|PUT|DELETE)["']/);
   assert.match(layout, /title:\s*"Live Setlist App"/);
   assert.match(css, /setlist|song|track|setlist-panel/i);
   assert.doesNotMatch(css, /react-loading-skeleton|sites-skeleton/);

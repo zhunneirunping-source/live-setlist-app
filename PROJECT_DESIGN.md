@@ -79,3 +79,10 @@ Accessibilityまたは重大なUX問題は、上位要件に由来していて�
 - Project固有の判断はこの文書へ記録する。
 - 複数Projectで再利用できる改善はDesign System改善候補として報告する。
 - Project作業から`C:\dev\design-system`を直接変更しない。
+
+## Local planner interaction decision (2026-09-28)
+
+- Primary flow is Home needs-action → live status update → post-event setlist → playlist checklist.
+- Five peer destinations reuse the existing tab pattern; on narrow screens the tab strip scrolls horizontally instead of shrinking labels below usable size.
+- Registration and lottery fields use progressive disclosure. Persistent labels, 44px controls, text status labels, and visible focus are required.
+- Device-local persistence is stated in content so the UI does not imply account-backed synchronization.

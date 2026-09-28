@@ -9,6 +9,7 @@
 - 収集したセットリストからアーティスト構成比と曲ランキングを集計
 - 初期移行データを基準にした、実データ寄りの表示を優先
 - Cloudflare D1 と共存しつつ、ローカルの JSON からも読み取れる構成
+- ブラウザ内に、今後のライブ・抽選・参戦後セトリ・プレイリスト候補を保存
 
 ## 主な技術
 
@@ -18,6 +19,8 @@
 - archive JSON under `初期移行データ/` as the canonical runtime dataset
 
 The deployed product is intentionally read-only. `GET /api/setlists` reads the archive; `POST`, `PUT`, and `DELETE` return `405 Method Not Allowed`. See `docs/data-consistency.md` before reintroducing editing or reconciling the legacy D1 data.
+
+The planning UI is local-first: mutable data is stored in the current browser profile under a versioned key and is merged with the bundled archive only for display and aggregation. It is not synchronized across devices and does not reopen the public API write surface.
 
 Archive and seed imports are validated before use. Unknown schema versions, malformed/null songs, missing artists, duplicate source song IDs or positions, and mismatched setlist references are rejected or excluded with reason codes. This detection does not select an archive/D1 source of truth or repair data automatically.
 
