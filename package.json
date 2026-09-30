@@ -15,7 +15,8 @@
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit --incremental false",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern worker-configuration.d.ts",
-    "security:gate": "npm run lint && npm run typecheck && npm run test:unit && npm audit --audit-level=high",
+    "security:audit": "node scripts/security-audit-gate.mjs",
+    "security:gate": "npm run lint && npm run typecheck && npm run build && npm run test:unit && npm run security:audit",
     "db:generate": "drizzle-kit generate",
     "data:audit": "node scripts/audit-archive.mjs"
   },
