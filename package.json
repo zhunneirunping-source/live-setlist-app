@@ -15,6 +15,7 @@
     "test:e2e": "playwright test",
     "typecheck": "tsc --noEmit --incremental false",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next --ignore-pattern worker-configuration.d.ts",
+    "security:gate": "npm run lint && npm run typecheck && npm run test:unit && npm audit --audit-level=high",
     "db:generate": "drizzle-kit generate",
     "data:audit": "node scripts/audit-archive.mjs"
   },
@@ -26,7 +27,7 @@
     "react-loading-skeleton": "3.5.0"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "1.37.1",
+    "@cloudflare/vite-plugin": "1.62.2",
     "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "4.2.1",
     "@types/node": "22.19.19",
@@ -41,8 +42,8 @@
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "vinext": "0.0.50",
-    "vite": "8.0.13",
-    "wrangler": "4.92.0"
+    "vite": "8.3.1",
+    "wrangler": "4.144.0"
   },
   "type": "module"
 }

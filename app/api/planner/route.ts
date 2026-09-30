@@ -9,6 +9,14 @@ import {
 
 type PlannerRow = { document: string; revision: number; updated_at: string };
 type RuntimeEnv = { DB?: D1Database };
+const MAX_PLANNER_BODY_BYTES = 1_048_576;
+
+function logPlannerFailure(event: string, error: unknown) {
+  console.error(JSON.stringify({
+    event,
+    errorType: error instanceof Error ? error.name : "UnknownError",
+  }));
+}
 
 async function database() {
   const runtime = await import("cloudflare:workers") as { env?: RuntimeEnv };
@@ -39,20 +47,45 @@ async function readState(db: D1Database) {
   return { store: loaded.store, revision: row.revision, updatedAt: row.updated_at };
 }
 
+async function readPlannerBody(request: Request) {
+  const mediaType = (request.headers.get("content-type") ?? "").split(";", 1)[0].trim().toLowerCase();
+  if (mediaType !== "application/json") throw new TypeError("Planner request must use application/json");
+  const declaredLength = Number(request.headers.get("content-length"));
+  if (Number.isFinite(declaredLength) && declaredLength > MAX_PLANNER_BODY_BYTES) throw new RangeError("Planner request is too large");
+  if (!request.body) throw new SyntaxError("Planner request body is required");
+
+  const reader = request.body.getReader();
+  const decoder = new TextDecoder();
+  let received = 0;
+  let text = "";
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    received += value.byteLength;
+    if (received > MAX_PLANNER_BODY_BYTES) {
+      await reader.cancel();
+      throw new RangeError("Planner request is too large");
+    }
+    text += decoder.decode(value, { stream: true });
+  }
+  text += decoder.decode();
+  return JSON.parse(text) as { store?: unknown; sourceStore?: unknown; revision?: number; migrationKey?: string; mode?: string };
+}
+
 async function bodyStore(request: Request) {
-  const body = await request.json() as { store?: unknown; sourceStore?: unknown; revision?: number; migrationKey?: string; mode?: string };
+  const body = await readPlannerBody(request);
   if (!body.store || typeof body.store !== "object" || (body.store as { version?: unknown }).version !== 1) {
-    throw new Error("Planner document is invalid");
+    throw new TypeError("Planner document is invalid");
   }
   const loaded = loadPlannerStore(JSON.stringify(body.store));
-  if (loaded.recovered) throw new Error("Planner document is invalid");
+  if (loaded.recovered) throw new TypeError("Planner document is invalid");
   let sourceStore;
   if (body.sourceStore !== undefined) {
     if (!body.sourceStore || typeof body.sourceStore !== "object" || (body.sourceStore as { version?: unknown }).version !== 1) {
-      throw new Error("Planner migration source is invalid");
+      throw new TypeError("Planner migration source is invalid");
     }
     const source = loadPlannerStore(JSON.stringify(body.sourceStore));
-    if (source.recovered) throw new Error("Planner migration source is invalid");
+    if (source.recovered) throw new TypeError("Planner migration source is invalid");
     sourceStore = source.store;
   }
   return { ...body, store: loaded.store, sourceStore };
@@ -69,7 +102,7 @@ export async function GET(request: Request) {
       : false;
     return Response.json({ ...state, empty: isPlannerStoreEmpty(state.store), migrationRecorded }, { headers: { "cache-control": "private, no-store" } });
   } catch (error) {
-    console.error(JSON.stringify({ event: "planner_read_failed", message: error instanceof Error ? error.message : "unknown" }));
+    logPlannerFailure("planner_read_failed", error);
     return Response.json({ error: "Planner data is unavailable" }, { status: 503 });
   }
 }
@@ -78,8 +111,8 @@ export async function POST(request: Request) {
   const user = authorize(request);
   if (!user) return Response.json({ error: "Authentication required" }, { status: 401 });
   try {
-    const db = await database();
     const { store, sourceStore, migrationKey, mode, revision } = await bodyStore(request);
+    const db = await database();
     if (!migrationKey || migrationKey.length > 160) return Response.json({ error: "Migration key is required" }, { status: 400 });
     const prior = await db.prepare("SELECT migration_key FROM planner_migrations WHERE migration_key = ?1").bind(migrationKey).first();
     if (prior) return Response.json({ ...(await readState(db)), migrated: false, duplicate: true });
@@ -111,7 +144,9 @@ export async function POST(request: Request) {
     ]);
     return Response.json({ store, revision: 1, updatedAt, migrated: true });
   } catch (error) {
-    console.error(JSON.stringify({ event: "planner_import_failed", message: error instanceof Error ? error.message : "unknown" }));
+    logPlannerFailure("planner_import_failed", error);
+    if (error instanceof RangeError) return Response.json({ error: "Planner request is too large" }, { status: 413 });
+    if (error instanceof SyntaxError || error instanceof TypeError) return Response.json({ error: "Planner request is invalid" }, { status: 400 });
     return Response.json({ error: "Planner migration failed; local data was kept" }, { status: 500 });
   }
 }
@@ -120,8 +155,8 @@ export async function PUT(request: Request) {
   const user = authorize(request);
   if (!user) return Response.json({ error: "Authentication required" }, { status: 401 });
   try {
-    const db = await database();
     const { store, revision } = await bodyStore(request);
+    const db = await database();
     if (!Number.isInteger(revision) || Number(revision) < 0) return Response.json({ error: "Revision is required" }, { status: 400 });
     const nextRevision = Number(revision) + 1;
     const updatedAt = new Date().toISOString();
@@ -136,7 +171,9 @@ export async function PUT(request: Request) {
     if (!result.meta.changes) return Response.json({ error: "Planner changed on another device", ...(await readState(db)) }, { status: 409 });
     return Response.json({ store, revision: nextRevision, updatedAt });
   } catch (error) {
-    console.error(JSON.stringify({ event: "planner_write_failed", message: error instanceof Error ? error.message : "unknown" }));
+    logPlannerFailure("planner_write_failed", error);
+    if (error instanceof RangeError) return Response.json({ error: "Planner request is too large" }, { status: 413 });
+    if (error instanceof SyntaxError || error instanceof TypeError) return Response.json({ error: "Planner request is invalid" }, { status: 400 });
     return Response.json({ error: "Planner data could not be saved" }, { status: 500 });
   }
 }

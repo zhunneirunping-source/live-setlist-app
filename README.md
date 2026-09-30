@@ -43,7 +43,10 @@ npm run build
 
 ```bash
 npm test
+npm run security:gate
 ```
+
+`/api/planner`のJSON bodyは1 MiBまでで、Content-Type、実受信bytes、document schemaをServer Sideで検証します。Security Gateはlint、typecheck、unit/security test、dependency auditを実行し、High以上が残る場合は失敗します。
 
 ### Cloudflare へデプロイ
 
