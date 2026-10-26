@@ -60,6 +60,8 @@ npm run deploy
 
 ## データソース
 
+楽曲選択・登録不可・曲名修正・明示統合とPlanner v2の互換性／リリース手順は[楽曲管理](docs/song-management.md)を参照してください。
+
 - Historical Archive reads use `初期移行データ/`.
 - Mutable Planner reads/writes use D1 through `/api/planner`.
 - Browser localStorage and UI state are not authoritative after migration.

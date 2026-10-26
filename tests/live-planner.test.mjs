@@ -44,11 +44,11 @@ test("normalizes width, case, whitespace, and dash variants for song identity", 
   assert.equal(normalizeIdentityText("Song  TITLE"), "song title");
 });
 
-test("loads a versioned store and safely resets malformed or unsupported data", () => {
+test("loads a versioned store and refuses malformed or unsupported data without an empty replacement", () => {
   const store = createPlannerStore("2026-09-28");
   assert.deepEqual(loadPlannerStore(JSON.stringify(store), "2026-09-28"), { store, recovered: false });
   assert.equal(loadPlannerStore("not json", "2026-09-28").recovered, true);
-  assert.equal(loadPlannerStore('{"version":2}', "2026-09-28").store.trackingEnabledAt, "2026-09-28");
+  assert.equal(loadPlannerStore('{"version":99}', "2026-09-28").store, null);
 });
 
 test("creates a stable idempotency key for the same local planner content", () => {

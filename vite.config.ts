@@ -43,6 +43,7 @@ export default defineConfig(async () => {
       vinext(),
       sites(),
       cloudflare({
+        ...(process.env.PLANNER_TEST_MODE === "1" ? { persistState: { path: ".wrangler/song-management-tests" } } : {}),
         viteEnvironment: { name: "rsc", childEnvironments: ["ssr"] },
         config: localBindingConfig,
       }),

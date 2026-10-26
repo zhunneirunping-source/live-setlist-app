@@ -94,3 +94,10 @@ Accessibilityまたは重大なUX問題は、上位要件に由来していて�
 - Mobile navigation uses the Consumer App profile because the five destinations are daily peer tasks; analytics composition continues to use the Dashboard profile.
 - Existing archive Event Type remains visibly unclassified until Human Review. The chart must not silently map unknown events to one-man shows.
 - Cards remain limited to independent summaries/forms. Repeated data uses rows and lists; shadows remain limited to navigation/dialog elevation.
+
+## Song management (2026-10-26)
+
+- Keep the existing song input/datalist; show explicit existing-song selection buttons with playlist status. Store selected IDs, not just display text.
+- Candidate is the default playlist filter; review and all-record management remain available in the same destination.
+- Performance titles/notes and correction/merge controls use details disclosure. Opening song details moves focus into the section; successful changes return focus to the playlist filter.
+- Reuse existing fields, row layout, colors and button styles. Mobile track actions span the full row; desktop actions stay aligned with the song input.

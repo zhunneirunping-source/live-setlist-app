@@ -1,5 +1,6 @@
 import {
   createPlannerStore,
+  PLANNER_SCHEMA_VERSION,
   isPlannerStoreEmpty,
   loadPlannerStore,
   plannerMigrationKey,
@@ -74,14 +75,14 @@ async function readPlannerBody(request: Request) {
 
 async function bodyStore(request: Request) {
   const body = await readPlannerBody(request);
-  if (!body.store || typeof body.store !== "object" || (body.store as { version?: unknown }).version !== 1) {
+  if (!body.store || typeof body.store !== "object" || (body.store as { version?: unknown }).version !== PLANNER_SCHEMA_VERSION) {
     throw new TypeError("Planner document is invalid");
   }
   const loaded = loadPlannerStore(JSON.stringify(body.store));
   if (loaded.recovered) throw new TypeError("Planner document is invalid");
   let sourceStore;
   if (body.sourceStore !== undefined) {
-    if (!body.sourceStore || typeof body.sourceStore !== "object" || (body.sourceStore as { version?: unknown }).version !== 1) {
+    if (!body.sourceStore || typeof body.sourceStore !== "object") {
       throw new TypeError("Planner migration source is invalid");
     }
     const source = loadPlannerStore(JSON.stringify(body.sourceStore));
@@ -158,6 +159,7 @@ export async function PUT(request: Request) {
     const { store, revision } = await bodyStore(request);
     const db = await database();
     if (!Number.isInteger(revision) || Number(revision) < 0) return Response.json({ error: "Revision is required" }, { status: 400 });
+    await readState(db); // Never overwrite an unsupported or malformed stored document.
     const nextRevision = Number(revision) + 1;
     const updatedAt = new Date().toISOString();
     const result = await db.prepare("UPDATE planner_state SET document = ?1, revision = ?2, updated_at = ?3, updated_by = ?4 WHERE id = 1 AND revision = ?5")

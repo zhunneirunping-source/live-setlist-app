@@ -1719,3 +1719,13 @@ button {
   .select-inline { width: 100%; }
   .select-inline button { flex: 1; }
 }
+/* Song selection reuses the track row, with secondary fields below the title. */
+.song-input-details { grid-column: 2; min-width: 0; overflow-wrap: anywhere; }
+.song-suggestions { list-style: none; padding: 0; margin: 0; }
+.song-suggestions button { text-align: left; min-height: 44px; }
+.song-input-details summary { cursor: pointer; min-height: 44px; }
+.song-input-details input:not([type="checkbox"]) { width: 100%; min-width: 0; }
+.track-row > .track-actions { grid-column: 3; grid-row: 1; }
+@media (max-width: 780px) {
+  .track-row > .track-actions { grid-column: 1 / -1; grid-row: auto; }
+}

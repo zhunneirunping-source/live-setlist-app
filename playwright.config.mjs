@@ -7,6 +7,6 @@ export default defineConfig({
     baseURL: process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:3000",
     trace: "retain-on-failure",
   },
-  outputDir: "tmp/playwright-results",
+  outputDir: ".wrangler/playwright-results",
   reporter: "line",
 });
