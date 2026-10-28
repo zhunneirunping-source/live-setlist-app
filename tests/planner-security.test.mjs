@@ -17,7 +17,7 @@ for (const [method, handler] of [["GET", GET], ["POST", POST], ["PUT", PUT]]) {
   });
 }
 
-for (const [method, handler] of [["POST", POST], ["PUT", PUT]]) {
+for (const [method, handler] of [["PUT", PUT]]) {
   test(`${method} /api/planner rejects an oversized local request before database access`, async () => {
     const response = await handler(new Request("http://localhost/api/planner", {
       method,

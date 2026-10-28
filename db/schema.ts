@@ -45,3 +45,11 @@ export const plannerMigrations = sqliteTable("planner_migrations", {
   importedBy: text("imported_by").notNull(),
   importedAt: text("imported_at").notNull(),
 });
+
+export const watchlistState = sqliteTable("watchlist_state", {
+  id: integer("id").primaryKey(),
+  document: text("document").notNull(),
+  revision: integer("revision").notNull().default(0),
+  updatedAt: text("updated_at").notNull(),
+  updatedBy: text("updated_by").notNull(),
+});

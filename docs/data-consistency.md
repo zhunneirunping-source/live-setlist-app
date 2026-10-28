@@ -1,6 +1,10 @@
 # Data consistency and recovery
 
-Updated: 2026-09-29
+Updated: 2026-10-28 (local implementation; production release pending)
+
+## Current recovery policy
+
+The 2026-10-28 [Cloud authority change](cloud-authority.md) supersedes the localStorage migration instructions below. Browser imports are disabled, including empty-Cloud initialization. POST returns 405. Old local data is preserved and can be exported verbatim; all ordinary edits use Cloud GET/PUT and revision checks. Existing migration receipts remain unchanged. The earlier migration section is historical, not an operational instruction.
 
 ## Source-of-truth decision
 

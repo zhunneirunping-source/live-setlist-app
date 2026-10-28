@@ -64,6 +64,15 @@ Consumer Appの表現を理由なくcolorful、gradient、animationへ結び付�
 
 既存CSSのwarm palette、gradient、large radius、shadowは現行実装の一部です。本作業では変更しません。将来その箇所を変更する際にAnti AI SlopとQuality Gateで目的を再確認し、Design Systemを理由に無関係な全面改修は行いません。
 
+## Culture Log Phase 1 (2026-10-28)
+
+- ウォッチリスト1画面を既存navigationに追加。一覧、ジャンル絞り込み、追加・編集フォーム、解除確認、参戦履歴からの選択登録だけを置く。
+- Dashboard profileの情報階層、既存field / form / row / buttonを再利用。Consumer App profileは既存と同様にmobile navigation、44px以上の操作領域、focus / feedbackへ適用する。
+- Mobileは6 destinationを3列×2段にし、ラベルと操作領域を維持する。safe areaと最下部contentの余白を確保する。
+- 重要度は文字で示し、最重要を先に並べる。候補登録はdetailsで開き、一覧を主役にする。解除は行内で確認し、確定後は一覧へfocusを戻す。
+- 既存accent上の白文字は通常文字のcontrastが不足するため、この画面のprimary buttonはforeground tokenで表示する。解除のtext buttonはdanger tokenを使い、色だけに依存せず文言と確認を併用する。共通Design Systemへの改善候補とし、無関係な既存画面は変更しない。
+- Cloud読込成功前と保存中は更新を無効化。失敗時に空の正本へ置換せず、入力を保持する。409では最新一覧を表示し、明示的な再操作を求める。
+
 ## Rule priority
 
 1. Project固有の明示的Product Requirement
@@ -96,6 +105,8 @@ Accessibilityまたは重大なUX問題は、上位要件に由来していて�
 - Cards remain limited to independent summaries/forms. Repeated data uses rows and lists; shadows remain limited to navigation/dialog elevation.
 
 ## Song management (2026-10-26)
+
+Cloud authority recovery (2026-10-28): viewing Cloud remains primary; recovery is secondary. Reuse the migration section and secondary button for exact raw export, without new tokens or navigation. Replace import actions with preserved-evidence wording. Dashboard remains Primary; existing Consumer App scope covers mobile targets and feedback only. Do not claim a file is saved until the user verifies the download.
 
 - Keep the existing song input/datalist; show explicit existing-song selection buttons with playlist status. Store selected IDs, not just display text.
 - Candidate is the default playlist filter; review and all-record management remain available in the same destination.

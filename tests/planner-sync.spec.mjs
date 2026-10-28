@@ -1,5 +1,8 @@
 import { expect, test } from "@playwright/test";
-import { plannerMigrationKey } from "../lib/live-planner.js";
+
+test.beforeEach(async ({ baseURL }) => {
+  if (process.env.PLANNER_TEST_MODE !== "1" || !["localhost", "127.0.0.1"].includes(new URL(baseURL).hostname)) throw new Error("Sync tests require an isolated local server with PLANNER_TEST_MODE=1");
+});
 
 test("cloud planner detects a stale cross-device revision", async ({ request }) => {
   const initialResponse = await request.get("/api/planner");
@@ -38,23 +41,8 @@ test("cloud planner detects a stale cross-device revision", async ({ request }) 
 
   const restore = await request.put("/api/planner", { data: { store: initial.store, revision: saved.revision } });
   expect(restore.ok()).toBeTruthy();
-  const restored = await restore.json();
-
-  const migrationEvent = { ...probe.events.at(-1), id: `e2e-migration-${Date.now()}`, title: "Migration Review Probe" };
-  const sourceStore = { ...initial.store, events: [...initial.store.events, migrationEvent] };
-  const mergedStore = { ...restored.store, events: [...restored.store.events, migrationEvent] };
-  const reviewedMerge = await request.post("/api/planner", { data: {
-    mode: "reviewed_merge",
-    store: mergedStore,
-    sourceStore,
-    migrationKey: plannerMigrationKey(sourceStore),
-    revision: restored.revision,
-  } });
-  expect(reviewedMerge.ok()).toBeTruthy();
-  const merged = await reviewedMerge.json();
-  expect(merged.migrationRecorded).toBe(true);
-  expect(merged.store.events.some((event) => event.id === migrationEvent.id)).toBe(true);
-
-  const restoreAfterMerge = await request.put("/api/planner", { data: { store: initial.store, revision: merged.revision } });
-  expect(restoreAfterMerge.ok()).toBeTruthy();
+  const blocked = await request.post("/api/planner", { data: { store: probe } });
+  expect(blocked.status()).toBe(405);
+  const after = await (await request.get("/api/planner")).json();
+  expect(after.store).toEqual(initial.store);
 });

@@ -1,13 +1,14 @@
 'use client';
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { Watchlist } from "./Watchlist";
 import {
   EVENT_STATUSES, EVENT_STATUS_LABELS, EVENT_TYPES, EVENT_TYPE_LABELS,
   PLAYLIST_STATUSES, PLAYLIST_STATUS_LABELS, PLANNER_STORAGE_KEY,
   SETLIST_SECTIONS, SETLIST_SECTION_LABELS, archiveIdentitySet,
   buildArtistRanking, buildArtistSongRanking, buildMonthlyAttendance, buildPlannerMigrationReview, buildSongRanking,
   createPlannerStore, eventToArchiveSetlist, getReminders, getUpcomingEvents,
-  isPlannerStoreEmpty, loadPlannerStore, localDateString, mergePlannerMigrationCandidates, plannerMigrationKey,
+  loadPlannerStore, localDateString,
   updatePlaylistStatus, upsertPerformance,
   playlistSongs, findCatalogSong, similarCatalogSongs, renameCatalogSong, mergeCatalogSongs, stableSongId, stableArtistId,
 } from "@/lib/live-planner.js";
@@ -51,10 +52,11 @@ export function SetlistDashboard() {
   const [revision, setRevision] = useState(0);
   const [cloudReady, setCloudReady] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [migrationSource, setMigrationSource] = useState<PlannerStore | null>(null);
+  const saveInFlight = useRef(false);
+  const [legacyRaw, setLegacyRaw] = useState<string | null>(null);
   const [migrationReview, setMigrationReview] = useState<MigrationReview | null>(null);
   const [notice, setNotice] = useState("");
-  const [tab, setTab] = useState<"home" | "lives" | "setlists" | "playlist" | "dashboard">("home");
+  const [tab, setTab] = useState<"home" | "lives" | "setlists" | "playlist" | "dashboard" | "watchlist">("home");
   const [draft, setDraft] = useState<EventDraft>(emptyDraft);
   const [showForm, setShowForm] = useState(false);
   const [statusFilter, setStatusFilter] = useState<"all" | EventStatus>("all");
@@ -81,29 +83,20 @@ export function SetlistDashboard() {
   useEffect(() => {
     let cancelled = false;
     void (async () => {
-      const local = loadPlannerStore(window.localStorage.getItem(PLANNER_STORAGE_KEY)) as { store: PlannerStore; recovered: boolean };
-      if (local.recovered) setNotice("端末データを読み込めませんでした。元データは削除していません。");
+      // Storage is recovery evidence only. Its failure must never block Cloud reads.
+      let raw: string | null = null;
+      try { raw = window.localStorage.getItem(PLANNER_STORAGE_KEY); setLegacyRaw(raw); }
+      catch { setNotice("端末の旧データを読み取れません。Cloudのデータを表示します。"); }
       try {
-        if (!local.store) throw new Error("端末データの形式を確認してください。元データは保持しています。");
-        const localHasData = !isPlannerStoreEmpty(local.store);
-        const migrationKey = localHasData ? plannerMigrationKey(local.store) : "";
-        const response = await fetch(`/api/planner${migrationKey ? `?migrationKey=${encodeURIComponent(migrationKey)}` : ""}`, { cache: "no-store" });
+        const response = await fetch("/api/planner", { cache: "no-store" });
         if (!response.ok) throw new Error("cloud unavailable");
-        let state = await response.json() as { store: PlannerStore; revision: number; empty: boolean; migrationRecorded?: boolean };
-        if (state.empty && localHasData) {
-          const migration = await fetch("/api/planner", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ store: local.store, migrationKey }) });
-          if (!migration.ok) throw new Error("migration failed");
-          state = await migration.json() as typeof state;
-          setNotice("端末のPlannerデータをCloudへ移行しました。端末の元データは保持しています。");
-        } else if (localHasData && !state.migrationRecorded) {
-          const review = buildPlannerMigrationReview(local.store, state.store) as MigrationReview;
-          if (review.hasCandidates || review.hasConflicts) {
-            setMigrationSource(local.store);
-            setMigrationReview(review);
-          }
+        const state = await response.json() as { store: PlannerStore; revision: number };
+        if (raw) {
+          const local = loadPlannerStore(raw);
+          if (local.store) setMigrationReview(buildPlannerMigrationReview(local.store, state.store) as MigrationReview);
         }
         const checked = loadPlannerStore(JSON.stringify(state.store)) as { store: PlannerStore | null; recovered: boolean };
-        if (!checked.store) throw new Error("unsupported cloud document");
+        if (!checked.store || !Number.isSafeInteger(state.revision) || state.revision < 0) throw new Error("unsupported cloud document");
         if (!cancelled) { setStore(checked.store); setRevision(state.revision); setCloudReady(true); }
       } catch {
         if (!cancelled) setNotice("共有Plannerへ接続できません。過去の記録は閲覧できますが、更新はできません。");
@@ -133,7 +126,8 @@ export function SetlistDashboard() {
   }, []);
 
   const saveStore = async (next: PlannerStore, success: string): Promise<boolean> => {
-    if (!cloudReady || saving) return false;
+    if (!cloudReady || saveInFlight.current) return false;
+    saveInFlight.current = true;
     setSaving(true);
     try {
       const response = await fetch("/api/planner", { method: "PUT", headers: { "content-type": "application/json" }, body: JSON.stringify({ store: next, revision }) });
@@ -145,44 +139,17 @@ export function SetlistDashboard() {
       setStore(data.store); setRevision(data.revision); setNotice(success);
       return true;
     } catch { setNotice("Cloudへ保存できませんでした。入力内容は画面に反映していません。再試行してください。"); return false; }
-    finally { setSaving(false); }
+    finally { saveInFlight.current = false; setSaving(false); }
   };
 
-  const importMigrationCandidates = async () => {
-    if (!migrationSource || !migrationReview?.hasCandidates || saving) return;
-    const merged = mergePlannerMigrationCandidates(store, migrationSource) as { store: PlannerStore; review: MigrationReview };
-    setSaving(true);
-    try {
-      const response = await fetch("/api/planner", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          mode: "reviewed_merge",
-          store: merged.store,
-          sourceStore: migrationReview.hasConflicts ? undefined : migrationSource,
-          migrationKey: plannerMigrationKey(migrationSource),
-          revision,
-        }),
-      });
-      const data = await response.json() as { store?: PlannerStore; revision?: number; error?: string };
-      if (response.status === 409 && data.store && typeof data.revision === "number") {
-        setStore(data.store); setRevision(data.revision);
-        const latestReview = buildPlannerMigrationReview(migrationSource, data.store) as MigrationReview;
-        setMigrationReview(latestReview.hasCandidates || latestReview.hasConflicts ? latestReview : null);
-        setNotice("別の端末で更新されました。最新データで移行候補を再確認してください。");
-        return;
-      }
-      if (!response.ok || !data.store || typeof data.revision !== "number") throw new Error(data.error);
-      setStore(data.store); setRevision(data.revision);
-      const remaining = buildPlannerMigrationReview(migrationSource, data.store) as MigrationReview;
-      setMigrationReview(remaining.hasCandidates || remaining.hasConflicts ? remaining : null);
-      if (!remaining.hasCandidates && !remaining.hasConflicts) setMigrationSource(null);
-      setNotice(remaining.hasConflicts ? "安全に追加できる端末データをCloudへ追加しました。競合は変更せず残しています。" : "端末だけにあったPlannerデータをCloudへ追加しました。端末の元データは保持しています。");
-    } catch {
-      setNotice("端末データをCloudへ追加できませんでした。端末の元データは変更していません。");
-    } finally {
-      setSaving(false);
-    }
+  const exportLegacyData = () => {
+    if (legacyRaw === null) return;
+    const url = URL.createObjectURL(new Blob([legacyRaw], { type: "application/json;charset=utf-8" }));
+    const link = document.createElement("a");
+    link.href = url; link.download = "live-setlist-iphone-legacy.json";
+    document.body.appendChild(link); link.click(); link.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    setNotice("旧端末データを書き出しました。ファイルを保存できたことを確認してください。");
   };
 
   const localSetlists = useMemo(() => store.events.filter((event) => event.status === "attended" && event.performances.length).map((event) => ({ ...eventToArchiveSetlist(event, store.songs), source: "cloud" as const }) as ArchiveSetlist), [store]);
@@ -258,17 +225,16 @@ export function SetlistDashboard() {
   };
   const bulkPlaylist = (status: PlaylistStatus) => { let next = store; selectedPlaylistIds.forEach((id) => { next = updatePlaylistStatus(next, id, status) as PlannerStore; }); void saveStore(next, `${selectedPlaylistIds.length}曲を更新しました。`).then((saved) => { if (saved) setSelectedPlaylistIds([]); }); };
   const moveTrack = (index: number, delta: number) => setTracks((current) => { const target = index + delta; if (target < 0 || target >= current.length) return current; const next = [...current]; [next[index], next[target]] = [next[target], next[index]]; return next; });
-  const navigation = [["home", "ホーム"], ["lives", "ライブ管理"], ["setlists", "セトリ"], ["playlist", "追加候補"], ["dashboard", "集計"]] as const;
+  const navigation = [["home", "ホーム"], ["lives", "ライブ管理"], ["setlists", "セトリ"], ["playlist", "追加候補"], ["dashboard", "集計"], ["watchlist", "ウォッチリスト"]] as const;
 
   return <main className="setlist-page">
     <nav className="main-tab-bar" aria-label="メイン画面">{navigation.map(([key, label]) => <button key={key} type="button" className={tab === key ? "tab-button active" : "tab-button"} aria-current={tab === key ? "page" : undefined} onClick={() => setTab(key)}><span className="nav-label">{label}</span>{key === "playlist" && candidates.length > 0 && <span className="nav-count">{candidates.length}</span>}</button>)}</nav>
     {notice && <div className="inline-notice" role="status">{notice}</div>}
-    {migrationReview && <section className="migration-review" aria-labelledby="migration-review-title">
-      <div><h2 id="migration-review-title">この端末にCloud未反映のデータがあります</h2><p>Cloudの既存データは上書きしません。端末の元データも削除しません。</p></div>
-      <dl><div><dt>安全に追加できるライブ</dt><dd>{migrationReview.safeEvents.length}件</dd></div><div><dt>安全に追加できる曲</dt><dd>{migrationReview.safeSongs.length}曲</dd></div><div><dt>要確認の競合</dt><dd>{migrationReview.eventConflicts.length + migrationReview.songConflicts.length}件</dd></div></dl>
-      {migrationReview.safeEvents.length > 0 && <ul>{migrationReview.safeEvents.map((event) => <li key={event.id}>{displayDate(event.date)} {event.title}</li>)}</ul>}
-      {migrationReview.hasConflicts && <div className="migration-warning"><p>同じIDまたは曲に異なる内容があります。競合分はCloudへ反映せず、この端末に保持します。</p><ul>{migrationReview.eventConflicts.map(({ local }) => <li key={`event:${local.id}`}>ライブ: {displayDate(local.date)} {local.title}</li>)}{migrationReview.songConflicts.map(({ local }) => <li key={`song:${local.id}`}>曲: {local.displayArtist} / {local.displayTitle}</li>)}</ul></div>}
-      {migrationReview.hasCandidates && <button type="button" className="primary-button" disabled={saving} onClick={() => void importMigrationCandidates()}>候補をCloudへ追加</button>}
+    {tab === "watchlist" && <Watchlist planner={store} archive={archive} historyReady={cloudReady && archiveReady} />}
+    {legacyRaw !== null && <section className="migration-review" aria-labelledby="migration-review-title">
+      <div><h2 id="migration-review-title">旧端末データを保管しています</h2><p>表示・保存はCloudが正本です。旧データは自動反映・削除しません。差分には過去の表記や状態の変更も含まれます。</p></div>
+      {migrationReview && <p>端末のみの候補: ライブ{migrationReview.safeEvents.length}件・曲{migrationReview.safeSongs.length}曲 ／ 要確認の差分{migrationReview.eventConflicts.length + migrationReview.songConflicts.length}件</p>}
+      <button type="button" className="secondary-button" onClick={exportLegacyData}>旧端末データを書き出す</button>
     </section>}
 
     {tab === "home" && <section className="workspace-page" aria-labelledby="home-title">

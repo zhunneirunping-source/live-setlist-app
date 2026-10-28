@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { createPlannerStore, upsertPerformance, updatePlaylistStatus, playlistSongs, renameCatalogSong, mergeCatalogSongs, findCatalogSong, loadPlannerStore, eventToArchiveSetlist, similarCatalogSongs, validatePlannerStore } from "../lib/live-planner.js";
-import { POST, PUT } from "../app/api/planner/route.ts";
+import { PUT } from "../app/api/planner/route.ts";
 
 const base = () => ({ ...createPlannerStore(), events: ["a", "b"].map((id) => ({ id, title: id, date: "2026-10-26", status: "attended", performances: [] })) });
 const register = (store, event, artist, tracks) => upsertPerformance(store, event, artist, tracks, new Set());
@@ -92,7 +92,7 @@ test("v1 reads upgrade losslessly, v2 round trips, invalid references fail close
 });
 
 test("old-client and unknown-version writes are rejected before database access", async () => {
-  for (const handler of [POST, PUT]) for (const version of [1, 99]) {
+  for (const handler of [PUT]) for (const version of [1, 99]) {
     const response = await handler(new Request("http://localhost/api/planner", { method: handler === PUT ? "PUT" : "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ store: { ...base(), version }, revision: 1 }) }));
     assert.equal(response.status, 400);
   }
