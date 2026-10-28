@@ -1,6 +1,6 @@
 # Data consistency and recovery
 
-Updated: 2026-10-28 (local implementation; production release pending)
+Updated: 2026-10-28 (Cloud authority released; Culture Log Phase 1 deployed, authenticated acceptance pending)
 
 ## Current recovery policy
 

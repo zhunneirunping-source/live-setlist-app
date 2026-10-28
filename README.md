@@ -60,7 +60,7 @@ npm run deploy
 
 ## データソース
 
-Culture Log Phase 1 adds a Cloud-only watchlist for music, films, exhibitions, books and theatre. See [watchlist design, validation and release procedure](docs/culture-log-phase1.md). Production activation requires approval for the additive `0002_culture_watchlist.sql` migration and deployment; local implementation does not activate Production.
+Culture Log Phase 1 adds a Cloud-only watchlist for music, films, exhibitions, books and theatre. The additive `0002_culture_watchlist.sql` migration and Worker/assets release are deployed after approved CI and backup verification. Authenticated PC/iPhone acceptance remains pending. See [watchlist design](docs/culture-log-phase1.md) and [release verification](docs/culture-log-phase1-release.md).
 
 楽曲選択・登録不可・曲名修正・明示統合とPlanner v2の互換性／リリース手順は[楽曲管理](docs/song-management.md)を参照してください。
 

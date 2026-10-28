@@ -71,7 +71,7 @@ Overall: WARNING（FAILなし、実機screen reader確認待ち）。Reviewer: �
 
 ## Production approval and release
 
-**条件付き承認・未実行（2026-10-28）。** 利用者は事前Gateがすべて成功した場合に限り、Worker `live-setlist-app`、D1 `live-setlist-prod`へのmigration `0002`の追加適用とdeployを承認した。今回の候補コードに対するCI Secret scanは未完了。commit / pushはAGENTS.mdの明示承認境界で保留している。[事前確認結果](culture-log-phase1-release.md)を参照。
+**本番反映済み・認証済み操作と実機確認待ち（2026-10-28）。** 利用者の条件付き本番承認と専用branchへのcommit / push承認後、CI Secret scanを含む全Gate成功を確認してmigration `0002`とdeployを実施した。Workerは`cf6d089c-56f8-4af5-a70e-19bae2619c4d`。既存Planner revision 31と全データを保持。[反映・検証結果](culture-log-phase1-release.md)を参照。以下は適用した手順。
 
 1. 承認後、現在のWorker version、Accessの全route保護、D1のpending migrationsをread-only確認する。pendingが`0002`だけでなければ停止する。
 2. 新しいD1 full exportとTime Travel bookmarkを取得し、Git外のbackup領域へ保存、hashと復旧可能性を確認する。Plannerのdocument hash、revision、公演・楽曲・出演数と既存テーブル件数も安全な場所に記録する。ユーザー提示の基準はrevision 31、公演12、楽曲131、出演16。相違があれば推測で上書きせず停止する。作業中の新規更新があれば最新baselineとして再確認する。
@@ -87,4 +87,4 @@ Overall: WARNING（FAILなし、実機screen reader確認待ち）。Reviewer: �
 
 自動収集、crawler、定期実行、通知、AI推薦、作品／鑑賞履歴、詳細master、tag基盤、新規dependencyは追加していない。大規模refactorなし。Technology LearningはType 0（既存のCloud正本・重複排除・楽観ロックの適用）。Vault外のこのrepositoryに仕様・手順を記録し、別repositoryのKnowledgeは未更新。
 
-本番の最新baseline確認、backup、本番適用、認証済みPC・実機iPhone Safariは承認後に残る。
+本番baseline確認、backup復元検証、migration、deploy、前後比較は完了。認証済み本番CRUD・既存機能smoke・PC / 実機iPhone Safari確認が残る。
